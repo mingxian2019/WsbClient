@@ -1,0 +1,50 @@
+@import '../css/tool.less';
+
+@meter-add--w: 30%;
+@meter-add--h: 500px;
+.meter-add{
+  .el-dialog{
+    margin-top: 8vh !important;
+    .el-dialog__body {
+      padding: 0;
+      height: @meter-add--h;
+      overflow-y: auto;
+      .grouping{
+        margin: 0;
+        .grouping-title{
+          background: #e5e5e5;
+        }
+        .grouping-content{
+          padding: 25px 25px 0 0;
+          .el-form-item__content{
+            width: 100%;
+          }
+        }
+      }
+      .el-input__inner{
+        border:none;
+        height: 38px;
+        line-height: 38px;
+      }
+    }
+  }
+  .el-form-item {
+    margin-right: 0;
+    margin-bottom: 35px!important;
+    .el-form-item__label{
+      padding: 0px;
+      line-height: 20px;
+    }
+    .el-form-item__error{
+      padding: 0;
+    }
+  }
+  .el-select{
+    width: 100%;
+  }
+  .last-w{
+    width: 100%;
+  }
+  .setEl-dialog(@meter-add--w)
+}
+

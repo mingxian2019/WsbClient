@@ -1,0 +1,125 @@
+.mheader {
+  position: relative;
+  background-color: #262626;
+}
+.mheader-logo {
+  width: 265px;
+  background-color: #262626;
+  height: 100%;
+  padding-left: 25px;
+  position: absolute;
+  left: 0;
+}
+.mheader-logo-img {
+  width: 40px;
+  height: 40px;
+  margin-top: 10px;
+}
+.mheader-logo-title {
+  height: 100%;
+  line-height: 60px;
+  padding: 0 10px;
+  color: #fefdfd;
+  font-weight: 400;
+  position: absolute;
+  left: 80px;
+  bottom: 0;
+  font-family: "宋体";
+  font-size: 20px;
+}
+.mheader-logo-title h1 {
+  display: inline-block;
+  font-size: 18px;
+}
+.mheader-logo-title i {
+  font-size: 16px;
+  margin: 0 0 0 5px;
+}
+.mheader-logo-title-content {
+  width: 100%;
+  position: absolute;
+  padding: 10px 0;
+  z-index: 999;
+  top: 70px;
+  Left: 0;
+  background: #262626;
+}
+.mheader-logo-title-content li {
+  padding: 5px 10px;
+  box-sizing: border-box;
+  line-height: 30px;
+}
+.mheader-logo-title-content li a {
+  display: block;
+  height: 100%;
+  color: #ffffff;
+  font-size: 16px;
+}
+.mheader-logo-title-content li:hover {
+  background: #000000;
+}
+.mheader-logo-title-content .fee {
+  position: relative;
+}
+.mheader-logo-title-content .fee .fee-title {
+  font-size: 16px;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.mheader-logo-title-content .fee ul {
+  position: absolute;
+  top: 0;
+  left: 150px;
+  background: #262626;
+  width: 300px;
+}
+.mheader-logo-title-content .fee ul .fee-content {
+  padding: 10px 10px;
+}
+.mheader-logo-title-content .fee ul .fee-content-item {
+  width: 65%;
+  display: inline-block;
+}
+.mheader-logo-title-content .fee ul .fee-content .item-r {
+  width: 35%;
+  padding-right: 20px;
+}
+.mheader-logo-title-content .fee ul .fee-content .item-br {
+  border-right: 1px solid #797575;
+}
+.mheader-logo-title-content .fee ul .cost-label {
+  font-size: 16px;
+  margin-bottom: 12px;
+  display: block;
+}
+.mheader-logo-title-content .fee ul .cost-content {
+  display: block;
+}
+.mheader-logo-title-content .fee ul .const-link {
+  font-size: 14px;
+  color: #ff9d00;
+  text-align: right;
+  margin-bottom: 12px;
+}
+.mheader-logo-title-content .fee ul .lastbm0 {
+  margin-bottom: 0px;
+}
+.mheader-logo-title:hover {
+  background: #333;
+}
+.mheader-nav {
+  position: absolute;
+  right: 30px;
+  height: 100%;
+}
+.mheader-nav .el-menu {
+  border: 0;
+}
+.mheader-nav .el-menu li .el-submenu__title:hover {
+  background: #535659 !important;
+}
+.mheader .el-badge sup {
+  border-color: #262626;
+  top: 15px;
+}

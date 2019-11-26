@@ -1,0 +1,176 @@
+.sysConfig {
+  position: relative;
+  margin-top: 10px;
+}
+.sysConfig-title {
+  height: 100%;
+  width: 250px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: #ffffff;
+  border-right: 1px solid #e4e7ed;
+}
+.sysConfig-title ul li {
+  line-height: 50px;
+  padding-left: 10px;
+  font-size: 16px;
+  font-weight: 700;
+  box-sizing: border-box;
+}
+.sysConfig-title ul li:hover {
+  background: #d8d8d8;
+  color: #409eff;
+  border-left: 2px solid #409eff;
+}
+.sysConfig-title-active {
+  background: #d8d8d8;
+  color: #409eff;
+  border-left: 2px solid #409eff;
+}
+.sysConfig-content {
+  height: 100%;
+  width: 100%;
+  min-width: 800px;
+  padding: 5px 15px 15px 270px;
+  box-sizing: border-box;
+  background: #f0f0f0;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.sysConfig-content-item {
+  background-color: #f7f7f7;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+.sysConfig-content-item-title {
+  color: #000000;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+.sysConfig-content-item-children {
+  position: relative;
+  font-size: 13px;
+}
+.sysConfig-content-item-children .directions {
+  position: absolute;
+  width: 500px;
+  left: 310px;
+  line-height: 18px;
+  font-size: 11px;
+}
+.sysConfig-content-item-children .directions i {
+  color: #ff7800 ;
+  font-style: inherit;
+}
+.sysConfig-content-item-children .s_ml1 {
+  margin-left: 320px;
+}
+.sysConfig-content-item-children .s_ml2 {
+  margin-left: 340px;
+}
+.sysConfig-content-item-children .s_ml3 {
+  margin-left: 40px;
+}
+.sysConfig-content::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+  background-color: #F5F5F5;
+}
+.sysConfig-content::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  background-color: #F5F5F5;
+}
+.sysConfig-content::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #dfdddd;
+}
+.sysConfig .el-checkbox {
+  margin-bottom: 10px;
+}
+.sysConfig .el-checkbox .el-checkbox__inner {
+  border-color: #000000;
+}
+.sysConfig .el-checkbox__input.is-checked + .el-checkbox__label {
+  color: #2b2b2b;
+}
+.sysConfig .el-checkbox__input.is-checked .el-checkbox__inner,
+.sysConfig .el-checkbox__input.is-indeterminate .el-checkbox__inner {
+  background-color: #08bd08;
+  border-color: #08bd08;
+}
+.sysConfig .el-radio {
+  margin: 0 0 10px 0;
+  width: 100%;
+}
+.sysConfig .el-radio .el-radio__label {
+  font-size: 13px;
+}
+.sysConfig .el-radio__input.is-checked + .el-radio__label {
+  color: #2b2b2b;
+}
+.sysConfig .el-radio__input.is-checked .el-radio__inner {
+  border-color: #08bd08;
+  background: #08bd08;
+}
+.sysConfig .ml20 {
+  margin-left: 20px;
+}
+.sysConfig .lastbm0 {
+  margin-bottom: 0;
+}
+.sysConfig .input-time {
+  width: 10%;
+  margin-top: 15px;
+}
+.sysConfig .input_label {
+  font-size: 13px;
+  margin-right: 10px;
+}
+.sysConfig .input-SetSMS {
+  width: 40%;
+  margin-top: 15px;
+}
+.sysConfig .warning {
+  margin-right: 37px;
+}
+.sysConfig .app {
+  margin-right: 80px;
+}
+.sysConfig .online1 {
+  margin-top: 30px;
+}
+.sysConfig .online1 .el-input {
+  width: 20%;
+  margin-right: 10px;
+}
+.sysConfig .timing {
+  margin-top: 30px;
+}
+.sysConfig .timing .el-input {
+  width: 10%;
+  margin: 0 10px 10px 0;
+}
+.sysConfig .timing .item1 {
+  margin-right: 40px;
+}
+.sysConfig .timing .item2 {
+  margin-right: 14px;
+}
+.sysConfig .timing .item3 {
+  margin-right: 66px;
+}
+@media screen and (min-width: 1800px) {
+  .sysConfig-content-item-children .s_ml1 {
+    margin-left: 340px;
+  }
+  .sysConfig-content-item-children .s_ml2 {
+    margin-left: 360px;
+  }
+  .sysConfig-content-item-children .s_ml3 {
+    margin-left: 40px;
+  }
+}

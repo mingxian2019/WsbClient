@@ -1,0 +1,108 @@
+// 侧边栏样式
+
+@sidebar-top-title--fs: 16px;
+@sidebar-top-title--bgc: #323232;
+@sidebar-top-title--c: #fcfbfb;
+@sidebar-top-checkbox--fs: 13px;
+@sidebar-content--bgc:#323232;
+@sidebar-content-tree--fs:14px;
+@sidebar-content-tree--c:#fcfbfb;
+@sidebar-content-tree--hoverbgc:#30a1e1;
+.sidebar{
+  height: 100%;
+  box-sizing: border-box;
+
+  &-top {
+    height:  5%;
+    background: @sidebar-top-title--bgc;
+    line-height: 40px;
+    padding-left: 20px;
+    padding-top: 10px;
+    &-title {
+      font-size: @sidebar-top-title--fs;
+      color: @sidebar-top-title--c;
+    }
+    &-checkbox{
+      display: inline-block;
+      margin-left: 40px;
+      span{
+        font-size: @sidebar-top-checkbox--fs;
+      }
+    }
+  }
+  &-content{
+    height: 95%;
+    background: @sidebar-content--bgc;
+    .el-tree {
+      font-size: @sidebar-content-tree--fs;
+      .mainTree-icon{
+        margin-right: 5px;
+        color: #fff;
+        font-size: 14px;
+      }
+      background-color: @sidebar-content--bgc;
+      color: @sidebar-content-tree--c;
+      .el-tree-node__content{
+        height: 40px;
+
+        .el-tree-node__expand-icon{
+          font-size: 14px;
+        }
+      }
+      .el-tree-node__content:hover{
+        background-color: @sidebar-content-tree--hoverbgc;
+
+      }
+      .el-tree-node:focus>.el-tree-node__content {
+        background-color: @sidebar-content-tree--hoverbgc;
+      }
+    }
+
+    .el-tree--highlight-current{
+      .el-tree-node.is-current>.el-tree-node__content {
+        background-color: @sidebar-content-tree--hoverbgc !important;
+      }
+    }
+    .el-tree-node{
+      position: relative;
+      padding-left: 16px;
+    }
+    .el-tree-node__children{
+      padding-left: 16px;
+    }
+    .el-tree-node :last-child:before {
+      height: 38px;
+    }
+    .el-tree>.el-tree-node:before{
+      border-left: none;
+    }
+    .el-tree>.el-tree-node:after{
+      border-top: none;
+    }
+    .el-tree-node:before,.el-tree-node:after{
+      content: "";
+      left: -4px;
+      position: absolute;
+      right: auto;
+      border-width: 1px;
+    }
+    .tree :first-child .el-tree-node:before{
+      border-left: none;
+    }
+    .el-tree-node:before {
+      border-left: 1px dashed #ccc;
+      bottom: 0px;
+      height: 100%;
+      top: -20px;
+      width: 1px;
+    }
+    .el-tree-node:after {
+      border-top: 1px dashed #ccc;
+      height: 20px;
+      top: 17px;
+      width: 18px;
+    }
+  }
+}
+
+

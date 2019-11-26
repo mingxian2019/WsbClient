@@ -1,0 +1,723 @@
+syntax = "proto3";
+//option cc_enable_arenas = true;
+//option optimize_for = LITE_RUNTIME; //CODE_SIZE;
+package  WsMsg;
+
+message SwRegIn
+{
+    fixed64 RegCode = 1; 
+}
+//message SwRegOut //Flag=1成功， 0注册码错误, -1解码异常
+
+message User
+{
+    uint64 Mobile = 1;
+    string Name = 2;
+    string Password = 3;
+    string Account = 4; //支付账号
+    fixed32 LoginTime = 5;
+    uint32 State = 6;
+}
+//message UserRegIn = UserUpdateIn = User (只需1 2 3 4)，注册时的验证码客户端自己生成比对，调用SendSmsIn发给注册者
+//message UserRegOut //Flag>0成功， =0 Id已存在, -1解码异常
+//message UserUpdateOut //可用于改密码、名称、账号等。 Flag>0成功， 0数据库更新失败, -1解码异常. 
+message UserLoginIn //家庭表用户登录. 客户端登录界面上WsId=0调UserLogin, Ws!=0调MeterOfUser
+{
+    uint64 Mobile = 1;
+    string Password = 2;
+}
+message UserLoginOut  //Flag=1成功，-1解码异常, -2未注册，-3密码不对
+{
+    string Name = 1;
+    string Account = 2; 
+    uint32 State = 3; //备用
+}
+
+message MeterOfUserIn  //物业表使用者用此命令登录，家庭用户UserLogin后再调用此命令(WsId=0)
+{
+    uint64 WsId = 1;
+    uint64 Mobile = 2;
+    uint32 Role = 3; //0物业表使用者, 1家庭表管理者， 2家庭表使用者
+}
+message MeterOfUserOut //Flag=0该物业表消费者无表，-1解码失败，>0回列表登录成功
+{
+    message MeterOfUser //物业表：消费者不可改。家庭表：直连或集中器都在设admin后上线自动建档。要改Type+UserName+Mobile，有非485端口表时才需要增删，暂不实现）
+    {
+        uint64 VirAddr = 1;  // VirAddr = ((TerminalAddr << 10) | SeqId) 
+        uint32 TerminalProtocol = 2;  //物业表时为Ws.db.Terminal.Protocol, 家庭表时Cl.db固定为3761或表协议
+        uint32 Port = 3;  // 家庭表时Cl.db默认为485
+        int64 Fes = 4;  //在线状态，>=0在线
+        uint64 MeterAddr = 5;
+        uint32 MeterProtocol = 6; //
+        uint32 MeterType = 7; //电表/水表
+        uint64 Mobile = 8; // 家庭表时cl.db中Meter.UserMobile或AdminMobile(AdminName用Cookie存). 物业表此字段无意义，为0.
+        string UserName = 9; //表名
+        uint32 Price = 10;  //物业表时单价消费者不可改，无意义，置0
+        int32 PayLeft = 11; // 家庭表时cl.db.Meter 12 11心跳时带  物业表Db读取
+        uint32 CalVal = 12; 
+        //uint32 MonthConsume = 13; //家庭表有效, 心跳时带
+        //string AdminCatalog = 14; //可以在客户端分类
+    }
+    repeated MeterOfUser Vec = 1;
+}
+message HomeMeterUpdateIn  //只有家庭表，房东登录此功能才可用
+{
+    uint64 VirAddr = 1;
+    uint32 MeterType = 2; //电表/水表
+    uint64 UserMobile = 3;    
+    string UserName = 4; //表名
+    uint32 Price = 5;
+}
+//message HomMeterUpdateOut //Flag>0成功，0数据库更新失败， -1解码异常
+//家庭表的Type+Name+UserMobile都存于数据库， 修改时无需AdminPw.  小程序的本地模式才能改AdminPw AdminMobile及对表进行增删改（需要 AdminPw）
+//充值：物业表WsId>0充给企业账号（记录在ws.db.PayLog），家庭表充给自己再转房东(记录在cl.db.UserPayLog)
+//租客充值到本云用cl.db.Meter中存的AdminPw加密后给表充值. 管理员忘记密码在验证码输入正确后回显。
+
+message PayLogUserGetIn //用Cmd PayLogUserGet
+{
+    fixed32 FromTime = 1; //限定每次最大查1至3个月的数据
+    fixed32 EndTime = 2;
+    uint64 Addr = 3; //物业表传VirAddr, 家庭表传MeterAddr.  家庭表租客查到前期租客的缴费记录可以在客户端滤
+}
+message PayLogUserGetOut
+{
+    message PayLogUser
+    {
+        fixed32 PayTime = 1;
+//     uint64 MeterAddr = 2;
+        uint32 PayWay = 3;
+        int32 Fee = 4; //金额
+        int32 Amount = 5; //数量
+        uint32 Cause = 6; //款项
+        string Receiver = 7; //Meter.AminMobile.Name
+        string TradeNo = 8; 
+        int32 ActRet = 9;
+        fixed32 ActTime = 10; //最近一次重试时间
+        uint64 Mobile = 11; //家庭表会换租客当前为记录而非关联此字段
+        string UserName = 12;
+        uint32 OutState = 14; // 物业表 14 15（代收后的转出记录）字段无效
+        string OutAccount = 15;
+    }
+    repeated PayLogUser Vec = 1;
+}
+
+message MeterValCurveIn
+{
+    uint64 VirAddr = 1; 
+    uint32 ValType = 2; //ValType=1234对3761规约D类F161....F164, 10表三相电压  11三相电流  12/13三相有/无功功率  14三相功率因数
+    fixed32 FromTime = 3;  // time_t ::time(NULL), 按Interval变秒后取整
+    uint32 Interval = 4;  // 15 60  0(每天1440分钟)  255(每月结算日)
+    uint32 Count = 5;
+    uint32 Day = 6; //月电量结算日
+}
+message MeterValTimePair
+{
+    fixed32 Time= 1;
+    uint32 Val0 = 2;
+}
+message MeterValCurveOut //Flag>0成功，0抄表失败， -1解码异常
+{
+    repeated MeterValTimePair Vec = 1; //按时间点连续的值，为0xEE..时无效，通常为漏抄或出现异常表底
+}
+
+message WorkStation
+{
+    uint64 Id = 1; //云账户管理员手机号，作为云账户的Id
+    string Name = 2; //云账户使用企业名称
+    string Password = 3;
+    uint64 DistrictId = 4; //DistrictId(ProvinceId << CityId << District) 对应 省 市 区 各2字节
+    uint32 Type = 5;  
+    uint32 State = 6; //停用1或启动0
+    uint32 StateTime = 7; //停用时间，停用半年后自动销户
+}
+//message WsRegIn = WsUpdateIn = message WorkStation  // Update要求用户输入旧密码，并与SysOprLoginOut回的WsPw对比通过才提交服务器
+//message WsRegOut //Flag>0成功，0已注册，-1解码异常 -2无可用通信服务端口。   注册时的验证码客户端自己生成比对，调用SendSmsIn发给注册者
+//message WsUpdateOut //Flag>0成功，0数据库操作失败，-1解码异常 
+
+message SysFeeLog
+{
+    uint64 TimeItem = 1;  //发生时间time(1970-至今的秒数） << 8) | Item, 组合起来以能添加同时发生的款项
+    //uint32 Item = x, //
+    int32 Fee = 2;  //>0进项，<0出项， =0客户端要滤
+    int32 LeftFee = 3;  //当前余额
+    uint32 PayWay = 4; //支付方式
+    string TradeNo = 5; 
+    string Receiver = 6;
+    string Memo = 7; 
+}
+message SysFeeLogGetIn  //ui上FromTime EndTime最大间隔限定为1个月
+{
+    fixed32 FromTime = 1;  
+    fixed32 EndTime = 2;  
+}
+message SysFeeLogGetOut //Flag>=0成功，-1解码异常
+{
+    repeated SysFeeLog Vec = 1;
+}
+
+message SysConfig
+{
+    uint32 Services = 1;  //Bit0-1采集存储间隔  Bit2-5采集数据项   Bit6预付费   公众号小程序Bit7-8  Esam表计Bit9   在线状态Bit10  短信Bit11-12
+    string SmsAppId = 2;
+    string SmsAppKey  = 3;
+    string SmsTplIds = 4;
+    uint32 SmsTime = 5;
+    uint32 AutoReadTime = 6;
+    uint32 OweSwitchTime = 7;
+    uint32 RechargeTime = 8;
+    uint32 LastLoginTime = 9;
+    uint32 LastOnlineTime = 10;
+}
+//message SysConfigGet = SysConfigUpdate = SysConfig, 
+//SysConfigGetIn = 空, GetOut = SysConfig.  //Out Flag>0成功， =0初始数据库异常, 
+//SysConfig UpdateIn=SysConfig UpdateOut=>//Flag>0成功, 0数据库操作失败, -1解码异常, 
+
+message SysOprLoginIn
+{
+    uint64 WsId = 1; //客户端工作站在云端的Id号，单机版填0
+//    string WsPw = 2;
+    uint64 Mobile = 2;
+    string Password = 3;
+}
+message SysOprLoginOut  //Flag=1成功，0 SysOpr的Id或Pw不对，-1解码异常 -2WsId云端未注册，-3WsPw不对， -4云登录时wsId不能为0, -5已在本机登录，-6已在别处登录
+{
+    string OprName = 1;
+    uint32 AreaId = 2;
+    uint32 RoleId = 3;
+    uint32 RecogId = 4; //单机版（0表已有效注册, 非0为未注册时注册需要的识别码）
+    string WsName = 5; // 5 6 7 8 9 10为云版才回
+    string WsPw = 6;
+    uint32 Type = 7;
+    uint64 SvrId = 8; //SvrId = ((IP << 16 ) | Port)
+    uint32 State = 9;
+    uint32 StateTime = 10;
+}
+message SysOpr
+{
+    uint64 Mobile = 1;
+    string Name = 2;
+    uint32 AreaId = 3;
+    uint32 RoleId = 4;
+    string Password = 5;
+}
+message SysOprDelIn
+{
+    uint64 Mobile = 1;
+}
+message SysOprGetAllOut
+{
+    repeated SysOpr Vec = 1;
+}
+
+message RoleRightGetIn
+{
+    uint32 RoleId = 1;
+}
+message ModuleRight
+{
+    uint32 ModuleId = 1;
+    uint32 HasRight = 2;
+}
+message RoleRightGetOut
+{
+    repeated ModuleRight Vec = 1;
+}
+message RoleRightUpdateIn
+{
+    uint32 RoleId = 1;
+    repeated ModuleRight Vec = 2;
+}
+
+message Area
+{
+    uint32 Id = 1;
+    uint32 ParentId = 2;
+    string IdChain = 3;
+    string Name = 4;
+}
+message AreaDelIn
+{
+    uint32 Id = 1;
+}
+message AreaUpdateNameIn
+{
+    uint32 Id = 1;
+    string Name = 2;
+}
+message AreaGetAllOut
+{
+    repeated Area Vec = 1;
+}
+
+message Terminal
+{
+    uint64 Addr = 1;
+    string Name = 2;
+    uint32 AreaId = 3;
+    uint32 Protocol = 4;
+    int64 Fes = 5; //>=0时为在线
+}
+//typedef class Terminal TerminalAddIn;
+//message TerminalAddOut //Flag=0添加成功但不在线，Flag=1添加成功且在线，Flag=-1解码异常，-2数据库插入失败，
+
+message TerminalDelIn
+{
+    uint64 Addr = 1;
+}
+//typedef AreaDelIn TerminalGetByAreaIn
+message TerminalGetByAreaOut
+{
+    repeated Terminal Vec = 1;
+}
+//typedef AreaDelIn AreaTerminalTreeGetIn
+message AreaTerminal
+{
+    uint64 Addr = 1;
+    string Name = 2;
+    uint32 AreaId = 3;
+    uint32 AreaParentId = 4;
+    string AreaName = 5;
+    uint32 Protocol = 6;
+    int64 Fes = 7;
+}
+message AreaTerminalTreeGetOut
+{
+    repeated AreaTerminal Vec = 1;
+}
+
+message Meter
+{
+    uint64 Addr = 1;
+    uint32 Protocol = 2;
+    uint32 MeterType = 3;
+    uint32 CtrlPw = 4;  //Pa P0 P1 P2,  密级Pa字节在最低位，在最前
+    uint32 PtCt = 5; //倍率
+    uint32 AreaId = 6; //Meter表查询多，增改少，增加了AreaId与TerminalProtocol两冗余字段
+    uint64 VirAddr = 7;  //VirAddr = ((TerminalAddr << 10) | SeqId)
+    uint32 Port = 8;
+    uint64 Mobile = 9;
+    uint32 UserType = 10;
+    uint64 UserNo = 11;
+    string UserName = 12;
+    string Site = 13;
+    uint32 MinVal = 14;
+    uint32 MaxVal = 15;
+}
+message MeterOfAreaTerminalIn
+{
+    int32 AreaId = 1;
+    uint64 TerminalAddr = 2; //AreaId < 0时，TerminalAddr有效
+}
+message MeterOfAreaTerminalOut
+{
+    repeated Meter Vec = 1;
+}
+message MeterImportIn
+{
+    repeated Meter Vec = 1;  //导入前客户端要确定表中新集中器的AreaId（即左树必须有个选中区域节点，如左树选中的是集中器节点则取其AreaId）
+}
+message MeterImportRet
+{
+    uint64 Addr = 1;
+    int32 Ret = 2;  //0表成功， 其它值为数据库失败码
+}
+message MeterImportOut // flag=-1 ImMsgDecodeFail, >=0 handled to import meter count
+{
+    uint32 NewTerminalCount = 1; 
+    repeated MeterImportRet Vec = 2;
+}
+//message MeterAddIn = Message Meter
+//message MeterAddOut //flag=0成功没自动插入新集中器，1成功自动插入的集中器不在线，2成功自动插入的集中器在线，-1解码失败， -2空数据库连接，-4数据库插入失败，
+//message MeterUpdateIn  = Message Meter
+//message MeterUpdateOut /flag=0成功没自动插入新集中器，1成功自动插入的集中器不在线，2成功自动插入的集中器在线， -1解码失败， -2空数据库连接， -3更新不存在记录，-4数据库更新失败，
+message MeterDelIn
+{
+    repeated uint64 VirAddrs = 1; //VirAddr = ((TerminalAddr << 10) | SeqId)
+}
+message MeterDelOut // flag=-1 ImMsgDecodeFail, >=0 handled to del meter count
+{
+    repeated MeterImportRet Vec = 1;
+}
+message MeterSetPrepayIn
+{
+    uint64 VirAddr = 1;
+    uint32 UserType = 2;
+    uint32 PayType = 3;
+    uint32 AlarmVal = 4;
+}
+message MeterInitPrepayIn
+{
+    uint64 VirAddr = 1; 
+    uint32 SwitchSta = 2;
+    int32 PayLeft = 3;
+    uint32 CalVal = 4;
+    uint32 PayCount = 5;
+}
+
+//typedef AreaDelIn GeneralStatIn
+message GeneralStatOut //flag>0成功，-- 总表数 在线表数  电表数 水表数  抄到电表 抄表水表  日用电量  日用水量  月用电量  月用水量
+{
+    uint32 TotalMeterCount = 1;
+    uint32 OnlineMeterCount = 2;
+    uint32 EnergyMeterCount = 3;
+    uint32 WaterMeterCount = 4;
+    uint32 EMeterReadCount = 5;
+    uint32 WMeterReadCount = 6;
+    uint32 EnergyDayConsume = 7;
+    uint32 WaterDayConsume = 8;
+    uint32 EnergyMonthConsume = 9;
+    uint32 WaterMonthConsume = 10;
+}
+//typedef AreaDelIn OfflineDetailIn
+/*message OfflineDetailOut
+{
+    message OfflineDetailObj
+    {
+        string TerminalName = 1;
+        uint64 TerminalAddr = 2;
+        string AreaName = 3;
+        uint32 MeterCount = 4;
+    }
+    repeated OfflineDetailObj Vec = 1;
+}*/
+
+message MeterValGridIn
+{
+    fixed32 FromTime = 1;  // MeterReadForm上时间限定为一天范围, FromTime=当日0点，EndTime=当前时间
+    fixed32 EndTime = 2;  
+    uint32 ValType = 3; //（1234按3761规约D类F161....F164排）, 10表三相电压 11三相电流 12/13三相有/无功功率 14三相功率因数
+    int32 AreaId = 4; //<0时无效, limit 8192
+    uint64 TerminalAddr = 5; 
+}
+message MeterValGridOut
+{
+    message MeterValGrid
+    {
+        uint64 Addr = 1;
+        uint32 Protocol = 2; //1+2网络直连表抄表用
+        uint64 VirAddr = 3; //3  集中器下属表抄表用   VirAddr = ((TerminalAddr << 10) | SeqId)
+        uint32 Port = 4;  //用于透传抄表
+        uint64 Mobile = 5;
+        uint32 UserType = 6;
+        uint64 UserNo = 7;
+        string UserName = 8;
+        fixed32 ValTime = 9;
+        uint32 Val0 = 10;  //总与4费率，点击或移到总电量单元格时展开
+        uint32 Val1 = 11;
+        uint32 Val2 = 12;
+        uint32 Val3 = 13;
+        uint32 Val4 = 14;
+        int32 Val5= 15; //日能耗，为0xeeeeeeee时无效用----显示，表示日用量无法计算或无效值
+        fixed32 ReadTime= 16;
+        string Site = 17; //方便漏抄或故障时实地去补
+    }
+    repeated MeterValGrid Vec = 1;
+}
+//message PeriodValQueryIn = Message MeterValGridIn //见WsCmdMsg.h定义
+message PeriodValQueryOut
+{
+    message PeriodValInfo
+    {
+        uint64 Addr = 1;
+        uint32 Protocol = 2; //1+2网络直连表抄表用
+        uint64 VirAddr = 3; //3  集中器下属表抄表用   VirAddr = ((TerminalAddr << 10) | SeqId)
+        uint32 Port = 4;  //用于透传抄表
+        uint64 Mobile = 5;
+        uint32 UserType = 6;
+        uint64 UserNo = 7;
+        string UserName = 8;
+        uint32 PtCt = 9;
+        uint32 Val0 = 10;  //总与4费率，点击或移到总电量单元格时展开
+        uint32 Val1 = 11;
+        //int32 Consume = PtCt*(Val1-Val0)，让客户端算， 注意Val1或Val0有一个无效时（=-1）Consume也无效
+    }
+    repeated PeriodValInfo Vec = 1;
+}
+
+message AreaConsumeCurveIn
+{
+    uint32 AreaId = 1; 
+    fixed32 FromTime = 2;  // time_t ::time(NULL),
+    fixed32 EndTime = 3;  // time_t ::time(NULL)
+    uint32 MeterType = 4; 
+}
+//message AreaConsumeCurveIn //同MeterValCurveOut
+
+message ExLogGetIn
+{
+    fixed32 FromTime = 1;  // MeterReadForm上时间限定为一天范围, FromTime=当日0点，EndTime=当前时间
+    fixed32 EndTime = 2;  
+    int32 AreaId = 3; //<0时无效, limit 8192
+    uint64 TerminalAddr = 4; 
+}
+message ExLogGetOut
+{
+    message ExLogExt
+    {
+        fixed32 ExTime = 1;
+        uint64 VirAddr = 2;
+        uint32 ExType =3;
+        string ExInfo = 4; //方便漏抄或故障时实地去补
+        uint64 Addr = 5;
+        uint64 Mobile = 6;
+        uint32 UserType = 7;  
+        string UserName = 8;
+    }
+    repeated ExLogExt Vec = 1;
+}
+
+
+///--------------------------------------预付费业务--------------------------------------
+message FeePrice
+{
+    uint32 Type = 1;
+    uint64 Price = 2; //B0-B8 对应费率1-4(尖峰平谷), 只有一个单价时取“平”= (Price>>32)&0xFFFF
+    string Alias = 3; //用户自定义的计费标准的名称
+}
+message FeePriceGetOut
+{
+    repeated FeePrice Vec = 1;
+}
+//typedef FeePrice FeePriceMergeIn
+//typedef FeePrice FeePriceDelIn
+
+message PrepayGetIn
+{
+    int32 AreaId = 1; //AreaId=0是全部表计，AreaId>0是该区域下所有表计, AreaId<0 是下面TerminalAddr所属表计
+    uint64 TerminalAddr = 2;  //AreaId<0时有效
+}
+message PrepayInfo //此form上拉合闸用ToFesIn.Type=3/4，并按FesActArg结构拼.Pack
+{
+    uint64 Addr = 1;
+    uint32 Protocol = 2;
+    uint32 CtrlPw = 3;
+    uint32 PtCt = 4;
+    uint64 VirAddr = 5; // VirAddr = ((TerminalAddr << 10) | SeqId)
+    uint32 Port = 6;
+    uint64 Mobile = 7;
+    uint32 UserType = 8; //计费标准，缓存FeePrice表信息（如发现还没缓存）.
+    string UserName = 9;
+    uint64 UserNo = 10; //带esam充值时用到
+    uint32 PayType = 11;  //0安全户（非预付费表）， 1主站预付费， 2表计算金额， 3表计算余量
+    uint32 AlarmVal = 12;
+    uint32 SwitchSta = 13; //多源充值时注意数据的同步实时性，客户端缓存时间长会这样的问题(可以用WsOprHashId推送wslGate, wsc推送ieClient,mobileUser用刷新或推送)
+    int32 PayLeft = 14; //余量
+    fixed32 FeeTime = 15;
+    uint32 CalVal = 16;
+    fixed32 ValTime = 17;
+    uint32 PayCount = 18;
+}
+message PrepayGetOut
+{
+    repeated PrepayInfo Vec = 1;
+}
+
+message PayLog //PayLogAdd 用此结构, 
+{
+    fixed32 PayTime = 1;
+    uint64 VirAddr = 2;
+    uint32 PayWay = 3; //0现金，1第三方
+    int32 Fee = 4; //金额
+    int32 Amount = 5; //根据单价折算。公众号充值时，应在后端折算
+    uint32 Cause = 6;
+    string Receiver = 7;
+    string TradeNo = 8; //交易单号
+    string Auditor = 9; //审核员，可以为空，在审核确认通过时传审核员名字
+/*    uint32 AreaId = 10;
+    uint64 MeterAddr = 11;
+    uint32 MeterType = 12;
+    string UserName = 13;
+    uint32 OutState = 14;
+    string OutAccount = 15;*/
+}
+//typedef PayLog PayLogAddIn
+message PayLogAddOut //flag>=0成功，-1 inMsgDecodeFail， -2数据库操作失败， -3离线不能执行,  -5表计执行失败
+{
+    int32 EndLeft = 1; //充后余量
+//    int32 PreLeft = 2; //充前余量
+}
+
+message PayLogExtGetIn
+{
+    fixed32 FromTime = 1; //限定每次最大查一个月的数据，同银行
+    fixed32 EndTime = 2;
+    int32 AreaId = 3;  //>=0时有效
+    int64 TerminalAddr = 4; // AreaId<0, 且自身>=0时有效
+    uint64 Mobile = 5; //AreaId<0且TerminalAddr<0时有效
+    bool IsOnlyEx = 6;
+}
+message PayLogExt  //PayExRetry用此结构
+{
+    fixed32 PayTime = 1;
+    uint64 VirAddr = 2;
+    uint32 PayWay = 3;
+    int32 Fee = 4; //金额
+    int32 Amount = 5; //数量
+    uint32 Cause = 6;
+    string Receiver = 7;
+    string TradeNo = 8; 
+    string Auditor = 9;
+    int32 ActRet = 10;
+    fixed32 ActTime = 11; //最近一次重试时间
+    uint64 MeterAddr = 12;
+    uint64 Mobile = 13; //支持一户多表（电表水表等）
+    uint32 UserType = 14;
+    string UserName = 15; //xx-电表， xx-水表
+    uint32 PayType = 16; 
+}
+message PayLogExtGetOut
+{
+    repeated PayLogExt Vec = 1;
+}
+message PayExRetryIn
+{
+    fixed32 PayTime = 1; 
+    uint64 VirAddr = 2;
+    int32 Val = 3; // Val = PayType == 2 ? Fee : Amount;
+    uint32 PayType = 4; 
+}
+//message PayExRetryOut 只需判断Cmd对应Message的flag，同PayLogAddOut.Flag
+
+/**-------以下不用ws而用http, 故直接从微信回的xml摘后重组合，字段命名与意义同微信官方文档---------------------
+//0. 公众号的菜单交互逻辑由公司服务器上网页完成，如需要后台服务的可发ws请求到各服务Gate.
+//1:客户端app统一下单请求ws/http+msg+url 2:支付结果回传缓存与处理http+url 3:客户端app支付结果查询与处理ws/http+msg+url
+message WxPayOrderIn
+{
+    string ClCmd = 1; //= "PayOrder" 大小写敏感
+    string AppId = 2;
+    string MchId  = 3; 
+    string Body = 4;
+    string OutTradeNo = 5;  //12B(年月日时分秒)  +16B(VirAddr BcdStr) 
+    uint32 TotalFee = 6; //金额，单位分
+    string OpenId =7;
+}
+message WxPayOrderOut  
+{
+//string ClCmd = 0;
+    string ReturnCode = 1;
+    string ReturnMsg = 2;
+    string AppId = 3;
+    string MchId  = 4; 
+    string ResultCode = 5;
+    string PrepayId = 6;
+    string Url = 7;
+}
+message WxPayQueryIn
+{
+//string ClCmd = 0;
+    string AppId = 1;
+    string MchId  = 2; 
+    string OutTradeNo = 3;
+}
+message WxPayQueryOut  
+{
+//string ClCmd = 0;  //= "PayQuery" 大小写敏感
+    string ReturnCode = 1;
+    string ReturnMsg = 2;
+    string AppId = 3;
+    string MchId  = 4; 
+    string ResultCode = 5;
+    string OpenId = 6;
+    string IsSubscribe = 7;
+    string TradeState = 8;
+    string BankType = 9;
+    string TotalFee = 10;
+    string OutTradeNo = 11;
+    string TradeStateDesc = 12;
+}
+*/
+///------------------------------------------------------------------------------------
+
+
+///----------------------------------前置机通信----------------------------------------
+/*
+struct FesActArg
+{
+    uint8 TerminalPro = 1; //1B
+    uint8 MeterPro = 2; //1B
+    uint64 MeterAddr = 3; //6B
+    uint8 Port = 4; //1B
+    uint32 CtrlPw = 5; //4B
+    int32 Val = 6; //4B 充值时=Fee(表计算费时为金额) 或 Amount(表计算量时为电量）， 拉闸时=0, 合闸时=1
+    uint16 PayCount = 7; //2B
+    uint64 UserNo = 8; //esam充值需求，取低6B
+    uint64 VirAddr = 9; //8B 
+    fixed32 PayTime = 10; //4B 客户端传0， 服务器用字段
+}
+struct FesCurveGetIn //从表实时读曲线数据
+{
+    uint32 ValType = 2; //ValType=1234对3761规约D类F161....F164, 10表三相电压 11三相电流 12/13三相有/无功功率 14三相功率因数
+    fixed32 FromTime = 3; //服务器转成5字节 BcdFromTime  同3761与645规约 年月日时分,分作为低字节在前
+    uint32 Interval = 4;  // 15 60  0(每天1440分钟)  255(每月结算日)
+    uint32 Count = 5;
+}
+*/
+message ToFesIn
+{
+    uint64 Fes = 1; //使用服务器返给客户端的, Terminal Add Update时不用填此字段。
+    uint64 Addr = 2;  //集中器地址
+    uint32 SpanSec = 3;  //type=2的充值命令,服务器会置为30秒
+    uint32 Type = 4; //0:Pack为完整规约报文， 1:曲线(Pack=FesCurveGetIn),  2:3:4:(2各种明密充值  3拉闸 4合闸, Pack=FesActArg)
+    bytes Pack = 5;  
+}
+message ToFesOut //先判断处理Message.Flag=（-4断开或退出等异常导致的未能执行）
+{
+    int32 ErrCode = 1;  //0成功， -1集中器离线(ui需要更新状态) -2集中器响应超时  -3前置服务未启动  -4断开或退出等导致的未能执行 -5表计执行失败 -6Esam失败
+    uint32 Type = 2; //0:Pack为完整规约报文， 1:曲线(Pack=CurveGetOut=uint Vals[count]),  2:3:4:(2各种明密充值=4B充后余量EndLeft,  3拉闸&4合闸为空-判断ErrCode)
+    bytes Pack = 3; //失败时Pack可能为空
+}
+message FesBroadcastIn
+{
+    bytes Pack = 1;
+}
+message FesBroadcastOut
+{
+}
+message FesCloseTerminalIn
+{      
+    uint64 Addr = 1;    //集中器地址         
+}
+message FesCloseTerminalOut
+{
+}
+message FesTerminalAddDelIn
+{      
+    uint64 Addr = 1;    //集中器地址
+    uint32 Act = 2; //0添加，1删除
+}
+message FesTerminalAddDelOut
+{
+    bool IsOnline = 1;  
+}
+///------------------------------------------------------------------------------
+
+
+///----------------------------------短信----------------------------------------
+/*message SmsSetIn   
+{
+    uint32 SmsTime = 1;
+    string AppId = 2;
+    string AppKey = 3;
+    string TplIds = 4; //有多个TplId的 ','分隔。暂限定为只有一个余量预警催费模板
+}*/
+//message SmsSetOut  //flag>=0为空成 <0为失败码
+message SendSmsIn   
+{
+    string NationCode = 1;
+    repeated string Mobiles = 2;  //群发同一手机号出现多次，qcSms返回无法区分。客户端可限定群发时不同表计类型分开发，或分成循环中单发(Mobiles只一个号）。
+    uint32 TemplateId = 3;
+    repeated string Params = 4;
+    string Ext = 5; //催费短信：单发时传Addr,  区分一户下多表。 验证码短信：传客户端生成的验证码
+}
+message SendSmsOut //flag=0成功，>0为qc错误码,  <0为本系统错误码（-1发送包错，-2>200条，-3未开通短信服务  -4短信服务失败）
+{
+    message SendSmsRet
+    {
+        string Mobile = 1;
+        int32 Result = 2;
+    }
+    repeated SendSmsRet Vec = 1;
+    string Ext =2; //发时置的Ext值s
+}
+///----------------------------------------------------------------------------
+

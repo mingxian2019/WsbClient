@@ -1,0 +1,50 @@
+.editPwd{
+  width: 100%;
+  height: 100%;
+  .content{
+    margin: 10px 0 0 0;
+    width: 100%;
+    height: 100%;
+    .content-top{
+      padding: 10px 20px 10px 20px;
+      box-sizing: border-box;
+      p{
+        height: 50px;
+        line-height: 50px;
+        padding-left: 20px;
+        font-size: 14px;
+        background: #f5e9bf;
+        border-radius: 5px;
+        height: 100%;
+        span{
+          font-size: 20px;
+        }
+      }
+
+    }
+    .el-form {
+      width: 360px;
+      margin: 40px auto;
+      .confirm{
+        float: right;
+      }
+      &-item{
+        margin-bottom: 35px;
+        &-__label{
+          text-align: right;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 500px) {
+  .editPwd{
+    min-height: 700px;
+    .content{
+      padding: 0;
+      .content-top{
+        border-radius: 0;
+      }
+    }
+  }
+}

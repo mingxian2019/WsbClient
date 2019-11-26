@@ -1,0 +1,83 @@
+.registered{
+  .header ul{
+    margin-right: 300px ;
+  }
+  &-content{
+    height: 90%;
+    background: #F6F6F6;
+    padding: 20px 300px;
+    box-sizing: border-box;
+    h1{
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    &-form{
+      background: #ffffff;
+
+      &-title{
+        height: 60px;
+        width: 100%;
+        position: relative;
+        border-bottom: 1px solid rgba(234, 234, 234, 1);
+        i{
+          font-size:30px;
+          color: #00A4FF;
+          left: 50%;
+          margin-left: -50px;
+          top: 15px;
+          position: absolute;
+        }
+        span{
+          font-size: 16px;
+          position: absolute;
+          top: 18px;
+          left: 50%;
+          margin-left: -10px;
+        }
+      }
+    }
+    .el-form{
+      padding: 20px 30% 40px 30%;
+      box-sizing: border-box;
+
+      .dividing{
+        width: 100%;
+        margin: 0 0 20px 0;
+        border-bottom: 1px solid rgba(234, 234, 234, 1);
+        position: relative;
+
+        &::after{
+          content: '手机信息';
+          display: block;
+          padding: 0 5px;
+          position: absolute;
+          left: 50%;
+          top: -9px;
+          margin-left: -40px;
+          font-size: 14px;
+          background: #ffffff;
+          color: #767677;
+        }
+      }
+      .el-cascader{
+        width: 100%;
+      }
+
+      .el-btn{
+        background: #fff;
+        border-color: #00A4FF;
+        color: #00A4FF;
+        border-radius: 0;
+      }
+      .form-btns{
+        .el-checkbox{
+          margin-right: 10px;
+        }
+      }
+      .submit{
+        width: 100%;
+        margin-top: 20px;
+      }
+    }
+  }
+}

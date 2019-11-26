@@ -1,0 +1,75 @@
+.cost {
+  margin-top: 10px;
+  padding: 10px;
+}
+.cost .vxe-toolbar {
+  padding: 0;
+}
+.cost .vxe-toolbar span {
+  font-size: 13px;
+}
+.cost .vxe-toolbar .el-button {
+  font-size: 13px;
+}
+.cost .vxe-toolbar .vxe-button--wrapper .vxe-input--wrapper {
+  height: 32px;
+  margin-right: 10px;
+}
+.cost .vxe-toolbar .vxe-custom--wrapper {
+  bottom: 0px;
+}
+.cost .vxe-toolbar .vxe-custom--wrapper .vxe-custom--setting-btn {
+  font-size: 16px;
+}
+.cost .vxe-toolbar .vxe-custom--wrapper .vxe-custom--option-wrapper {
+  bottom: 40px;
+}
+.cost .el-date-editor {
+  margin: 0 10px;
+}
+.cost .vxe-table {
+  height: 86%;
+  margin: 10px 0 10px 0 ;
+}
+.cost .vxe-table .vxe-table--body-wrapper {
+  height: 90%;
+}
+.cost .vxe-table .vxe-table--body-wrapper::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+  background-color: #F5F5F5;
+}
+.cost .vxe-table .vxe-table--body-wrapper::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  background-color: #F5F5F5;
+}
+.cost .vxe-table .vxe-table--body-wrapper::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #dfdddd;
+}
+.cost .vxe-table .keyword-lighten {
+  color: #000;
+  background-color: #FFFF00;
+}
+.cost .el-pagination {
+  float: left;
+}
+.cost .daochu {
+  float: left;
+  margin-left: 10px;
+  color: #333;
+}
+.cost .uploadFile {
+  margin-right: 40px;
+}
+@media screen and (min-width: 1800px) {
+  .cost .vxe-table {
+    height: 89%;
+    margin: 10px 0 10px 0 ;
+  }
+  .cost .vxe-table .vxe-table--body-wrapper {
+    height: 92.5%;
+  }
+}

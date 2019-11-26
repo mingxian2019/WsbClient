@@ -1,0 +1,135 @@
+// 登录界面样式
+
+@loginform--bg: #ffffff;
+@loginform--w: 18%;
+@loginform--h: 60%;
+@loginform--r: 130px;
+@loginform--t: 20%;
+@loginform--br: 5px;
+// 登录表单标题对齐方式
+@loginform-title--ta: left;
+
+@el-form--pt: 20px;
+
+@loginform-btns-link--fs: 13px;
+@login-bottom--h: 40px;
+.login {
+  position: relative;
+  .login-content{
+    height: 82%;
+    width: 100%;
+    background: url('../../public/login_20180101.jpg') no-repeat center center;
+    background-size:cover;
+    background-attachment:fixed;
+    img{
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .loginform {
+    position: absolute;
+    top: @loginform--t;
+    right: @loginform--r;
+    width: @loginform--w;
+    height: @loginform--h;
+    min-width: 420px;
+    z-index: 999;
+    background-color: @loginform--bg;
+    border-radius: @loginform--br;
+    padding: 20px 30px;
+
+    &-title{
+      margin: 0 auto;
+      text-align: @loginform-title--ta;
+    }
+    .el-form {
+      padding-top: @el-form--pt;
+      &-item:nth-child(1) {
+        position: relative;
+        .item1-icon{
+          position: absolute;
+          z-index: 999;
+          top: 18px;
+          left: 10px;
+          color: #ccc;
+        }
+        .el-input{
+          input{
+            padding-left: 40px;
+          }
+        }
+      }
+      
+      .el-form-item__label{
+        line-height: 50px;
+      }
+      .el-select{
+        width: 100%;
+      }
+      .el-input{
+        input{
+          height: 50px;
+          line-height: 50px;
+        }
+      }
+      .el-cascader{
+        width: 100%;
+        line-height: 50px;
+      }
+      .el-button {
+        width: 100%;
+        padding: 16px 20px;
+      }
+      .item-location{
+        position:relative;
+
+        .inCity{
+          position: absolute;
+          font-size: 12px;
+          line-height: 20px;
+          bottom: -20px;
+          right: 20px;
+          padding: 0 12px;
+          display: inline-block;
+        }
+      }
+      .el-checkbox{
+        margin-bottom: 20px;
+        .el-checkbox__inner{
+          width: 20px;
+          height: 20px;
+        }
+        .el-checkbox__inner::after{
+          height: 13px;
+          left: 7px;
+        }
+      }
+    }
+    &-btns{
+      width: 100%;
+      margin-top: 15px;
+
+      &-link{
+        font-size: 13px;
+        vertical-align: middle;
+        float:right;
+      }
+    }
+  }
+  .splitter {
+    padding: 0 5px;
+  }
+  .login-bottom{
+    height: @login-bottom--h;
+    line-height: 20px;
+    text-align: center;
+    p{
+      .el-link{
+        font-size: 13px;
+      }
+      color: #909399;
+      font-size: 13px;
+    }
+  }
+}
+

@@ -1,0 +1,26 @@
+.forgetPW .content {
+  height: 90%;
+  width: 80%;
+  margin: 50px auto;
+  box-sizing: border-box;
+}
+.forgetPW .content .el-form {
+  width: 70%;
+  margin: 50px auto;
+  box-sizing: border-box;
+}
+.forgetPW .content .el-form .form-item {
+  height: 100px;
+  width: 100%;
+}
+.forgetPW .content .el-form .form-item .el-form-item .el-form-item__label {
+  padding: 0px;
+}
+.forgetPW .content .el-form div:nth-child(2) .el-input {
+  width: 50%;
+  margin: 10px 10px 0 0;
+}
+.forgetPW .content .btns {
+  width: 70%;
+  margin: 0 auto;
+}

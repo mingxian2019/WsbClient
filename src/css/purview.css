@@ -1,0 +1,104 @@
+.purview {
+  width: 100%;
+  height: 100%;
+  margin-top: 10px;
+}
+.purview .content {
+  height: 100%;
+  background: #F5F5F5;
+}
+.purview .content .content-title {
+  height: 40px;
+  line-height: 40px;
+  padding: 0 0 0 10px;
+  border-bottom: 2px solid #f5f5f5;
+  border-radius: 5px 5px 0 0;
+  font-size: 16px;
+}
+.purview .content .content-title i {
+  font-size: 20px;
+  margin-right: 10px;
+  color: #999999;
+}
+.purview .content .content-title-btn {
+  float: right;
+  margin: 5px 20px;
+}
+.purview .content .content-left {
+  width: 30%;
+  height: 100%;
+  background: #ffffff;
+  float: left;
+  border-radius: 5px;
+}
+.purview .content .content-left .content-left-b {
+  border-radius: 0 0 5px 5px;
+}
+.purview .content .content-left .content-left-b .el-menu {
+  border: none;
+}
+.purview .content .content-right {
+  height: 100%;
+  float: left;
+  width: 69%;
+  margin-left: 1%;
+  background: #ffffff;
+  border-radius: 5px;
+}
+.purview .content .content-right .content-right-b {
+  height: 92%;
+  border-radius: 0 0 10px 10px;
+  padding-left: 10px;
+  overflow-y: auto;
+}
+.purview .content .content-right .content-right-b .content-tree {
+  width: 50%;
+  float: left;
+  visibility: auto;
+}
+.purview .content .content-right .content-right-b .explain {
+  float: left;
+  line-height: 1;
+  width: 50%;
+  height: 14px;
+  padding: 50px 0 0 20px;
+}
+.purview .content .content-right .content-right-b .explain .explain-true {
+  margin-bottom: 60px;
+}
+.purview .content .content-right .content-right-b .explain .explain-true:after {
+  content: '';
+  display: block;
+  border: 1px solid #ccc;
+  width: 13px;
+  height: 13px;
+  float: left;
+  margin-right: 5px;
+}
+.purview .content .content-right .content-right-b .explain .explain-false {
+  line-height: 1;
+}
+.purview .content .content-right .content-right-b .explain .explain-false:after {
+  content: '';
+  display: block;
+  background: #35a3e2;
+  width: 13px;
+  height: 13px;
+  float: left;
+  margin-right: 5px;
+}
+.purview .content .content-right .content-right-b::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+  background-color: #F5F5F5;
+}
+.purview .content .content-right .content-right-b::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  background-color: #F5F5F5;
+}
+.purview .content .content-right .content-right-b::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #dfdddd;
+}

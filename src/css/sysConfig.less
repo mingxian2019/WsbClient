@@ -1,0 +1,194 @@
+.sysConfig{
+  position: relative;
+  margin-top: 10px;
+  &-title{
+    height: 100%;
+    // width: 20%;
+    width: 250px;
+    // min-width: 200px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: #ffffff;
+    border-right: 1px solid #e4e7ed;
+    ul {
+
+      li{
+        line-height: 50px;
+        padding-left: 10px;
+        font-size: 16px;
+        font-weight: 700;
+        box-sizing: border-box;
+      }
+      li:hover{
+        background: #d8d8d8;
+        color: #409eff;
+        border-left: 2px solid #409eff;
+      }
+    }
+    &-active{
+      background: #d8d8d8;
+      color: #409eff;
+      border-left: 2px solid #409eff;
+    }
+  }
+  &-content{
+    height: 100%;
+    width: 100%;
+    min-width: 800px;
+    padding: 5px 15px 15px 270px;
+    box-sizing: border-box;
+    background: #f0f0f0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    &-item{
+      background-color: rgb(247, 247, 247);
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+
+      &-title{
+        color: #000000;
+        margin-bottom: 10px;
+        font-weight: 700;
+      }
+      &-children{
+        position: relative;
+        font-size: 13px;
+        .directions {
+          position: absolute;
+          width: 500px;
+          left: 310px;
+          line-height: 18px;
+          font-size: 11px;
+          i{
+            color: #ff7800 ;
+            font-style: inherit;
+          }
+
+        }
+        .s_ml1{
+          margin-left: 320px;
+        }
+        .s_ml2{
+          margin-left: 340px;
+        }
+        .s_ml3{
+          margin-left: 40px;
+        }
+      }
+    }
+  }
+  &-content::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+    background-color: #F5F5F5;
+  }
+  &-content::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    background-color: #F5F5F5;
+  }
+  &-content::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+    background-color: rgb(223, 221, 221);
+  }
+  .el-checkbox{
+    margin-bottom: 10px;
+
+    .el-checkbox__inner{
+      border-color: #000000;
+    }
+  }
+  .el-checkbox__input.is-checked+.el-checkbox__label{
+    color: #2b2b2b;
+  }
+  .el-checkbox__input.is-checked .el-checkbox__inner, .el-checkbox__input.is-indeterminate .el-checkbox__inner{
+    background-color: #08bd08;
+    border-color: #08bd08;
+  }
+  .el-radio{
+    margin: 0 0 10px 0;
+    width: 100%;
+
+    .el-radio__label{
+      font-size: 13px;
+    }
+  }
+  .el-radio__input.is-checked+.el-radio__label {
+    color:  #2b2b2b;
+  }
+  .el-radio__input.is-checked .el-radio__inner {
+    border-color: #08bd08;
+    background: #08bd08;
+  }
+
+  .ml20{
+    margin-left: 20px;
+  }
+  .lastbm0{
+    margin-bottom: 0;
+  }
+  .input-time{
+    width: 10%;
+    margin-top: 15px;
+  }
+  .input_label {
+    font-size: 13px;
+    margin-right: 10px;
+  }
+  .input-SetSMS {
+    width: 40%;
+    margin-top: 15px;
+  }
+  .warning {
+    margin-right: 37px;
+  }
+  .app{
+    margin-right: 80px;
+  }
+
+  .online1{
+    margin-top: 30px;
+    .el-input {
+      width: 20%;
+      margin-right: 10px;
+    }
+  }
+  .timing{
+    margin-top: 30px;
+    .el-input {
+      width: 10%;
+      margin: 0 10px 10px 0;
+    }
+    .item1 {
+      margin-right: 40px;
+    }
+    .item2 {
+      margin-right: 14px;
+    }
+    .item3{
+      margin-right: 66px;
+    }
+  }
+}
+@media screen and (min-width: 1800px) {
+  .sysConfig {
+    &-content {
+      &-item {
+        &-children {
+          .s_ml1{
+            margin-left: 340px;
+          }
+          .s_ml2{
+            margin-left: 360px;
+          }
+          .s_ml3{
+            margin-left: 40px;
+          }
+        }
+      }
+    }
+  }
+}

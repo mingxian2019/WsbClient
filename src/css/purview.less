@@ -1,0 +1,126 @@
+.purview {
+  width: 100%;
+  height: 100%;
+  margin-top: 10px;
+
+  .content {
+    height: 100%;
+    background: #F5F5F5;
+
+    .content-title {
+      height: 40px;
+      line-height: 40px;
+      padding: 0 0 0 10px;
+      border-bottom: 2px solid #f5f5f5;
+      border-radius: 5px 5px 0 0;
+      font-size: 16px;
+
+      i {
+        font-size: 20px;
+        margin-right: 10px;
+        color: #999999;
+      }
+      &-btn{
+        float: right;
+        margin: 5px 20px;
+      }
+    }
+
+    .content-left {
+      width: 30%;
+      height: 100%;
+      background: #ffffff;
+      float: left;
+      border-radius: 5px;
+
+      .content-left-b {
+        border-radius: 0 0 5px 5px;
+        .el-menu{
+          border: none;
+        }
+      }
+    }
+
+    .content-right {
+      height: 100%;
+      float: left;
+      width: 69%;
+      margin-left: 1%;
+      background: #ffffff;
+      border-radius: 5px;
+      .content-title-btn{
+        color: #FFF;
+        background-color: #409EFF;
+        border-color: #409EFF;
+      }
+      .content-right-b{
+        height: 92%;
+        border-radius: 0 0 10px 10px;
+        padding-left: 10px;
+        overflow-y: auto;
+        .content-tree{
+          width: 50%;
+          float: left;
+          visibility: auto;
+        }
+        .explain{
+          float: left;
+          line-height: 1;
+          width: 50%;
+          height: 14px;
+          padding: 50px 0 0 20px;
+          .explain-true{
+            margin-bottom: 60px;
+            &:after{
+              content: '';
+              display: block;
+              border: 1px solid #ccc;
+              width: 13px;
+              height: 13px;
+              float: left;
+              margin-right: 5px;
+            }
+          }
+          .explain-false{
+            line-height: 1;
+            &:after{
+              content: '';
+              display: block;
+              background: #35a3e2;
+              width: 13px;
+              height: 13px;
+              float: left;
+              margin-right: 5px;
+            }
+          }
+
+        }
+      }
+      .content-right-b::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+        background-color: #F5F5F5;
+      }
+      .content-right-b::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+        border-radius: 10px;
+        background-color: #F5F5F5;
+      }
+      .content-right-b::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+        background-color: rgb(223, 221, 221);
+      }
+    }
+  }
+}
+@media screen and (max-width: 1600px) {
+  .purview{
+    .vxe-toolbar{
+      .vxe-custom--wrapper{
+          bottom: -575px;
+        }
+      }
+  }
+}
+

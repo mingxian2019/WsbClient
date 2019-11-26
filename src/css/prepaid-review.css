@@ -1,0 +1,173 @@
+.hw100 {
+  height: 100%;
+  width: 100%;
+}
+.mr10 {
+  margin-right: 10px;
+}
+.float-r {
+  float: right;
+}
+.float-l {
+  float: left;
+}
+.clearfix:after {
+  content: '';
+  height: 0;
+  display: block;
+  clear: both;
+}
+.grouping {
+  padding: 10px;
+  box-sizing: border-box;
+  position: relative;
+  border: 1px solid #ccc;
+  margin: 10px 0 15px 0;
+  border-radius: 5px;
+}
+.grouping-title {
+  position: absolute;
+  display: block;
+  background: #fff;
+  top: -15px;
+  left: 20px;
+  padding: 5px 10px;
+  font-size: 16px !important;
+  height: 20px;
+  text-align: center;
+  line-height: 20px;
+}
+.header {
+  height: 10%;
+}
+.header-logo {
+  display: inline-block;
+  width: 80px;
+  height: 100%;
+  margin-left: 30px;
+  vertical-align: top;
+  background-color: skyblue;
+}
+.header-logo img {
+  width: 100%;
+  height: 100%;
+}
+.header-title {
+  display: inline-block;
+  margin-top: 18px;
+  color: #333;
+}
+.header-title .shu {
+  display: inline-block;
+  height: 100%;
+  margin: 0 5px 0 5px;
+}
+.header-title h2 {
+  padding-right: 10px;
+  border-right: 1px solid #ccc;
+  display: inline-block;
+  font-size: 20px;
+  font-weight: 400;
+}
+.header-title span {
+  color: #666;
+  font-size: 16px;
+}
+.header-nav {
+  height: 100%;
+  float: right;
+  margin-right: 150px;
+  padding-top: 25px;
+}
+.header-nav li {
+  float: left;
+  padding: 0 10px;
+}
+.header-nav li a {
+  font-size: 16px;
+}
+.el-item50 {
+  display: inline-block;
+  width: 50%;
+  padding-right: 10px;
+  box-sizing: border-box;
+}
+.btn-fun {
+  color: #000;
+  padding: 0;
+  border: 0;
+  margin: 5px 20px 0 0;
+}
+.btn-fun i {
+  font-size: 18px;
+  vertical-align: sub;
+}
+.online {
+  background: #2ff807;
+}
+.offline {
+  background: #fa2222;
+}
+.prepaid-review .el-dialog {
+  margin-top: 30vh !important;
+}
+.prepaid-review .el-form .el-form-item {
+  display: inline-block;
+  margin: 0 10px 10px 0;
+}
+.prepaid-review .el-form .el-form-item .el-form-item__label {
+  line-height: 32px;
+}
+.prepaid-review .el-form .el-form-item .el-form-item__content {
+  line-height: 32px;
+}
+.prepaid-review .el-form .el-form-item .el-input {
+  width: 130px;
+}
+.prepaid-review .el-form .price {
+  margin-right: 20px;
+}
+.prepaid-review .el-form .unit {
+  padding-left: 5px;
+  width: 100%;
+  height: 30px;
+  line-height: 30px;
+  border: 1px solid #ececec;
+}
+.prepaid-review .el-form .unit-label {
+  margin-left: 10px;
+}
+.prepaid-review .el-form .unit-label:first-child {
+  margin-left: 35px;
+}
+.prepaid-review .el-dialog {
+  width: 40%;
+  border-radius: 5px;
+}
+.prepaid-review .el-dialog__header {
+  padding-top: 15px;
+  border-radius: 5px 5px 0 0;
+  background-color: #F5F5F5;
+}
+.prepaid-review .el-dialog__header .el-dialog__title {
+  font-size: 18px;
+  font-weight: 700;
+}
+.prepaid-review .el-dialog__header .el-dialog__headerbtn {
+  top: 14px;
+}
+.prepaid-review .el-dialog__header .el-dialog__headerbtn .el-dialog__close {
+  font-size: 18px;
+}
+.prepaid-review .el-dialog__header .el-dialog__headerbtn .el-dialog__close:hover {
+  color: red;
+}
+.prepaid-review .el-dialog__body {
+  padding: 15px 15px 0 15px;
+}
+.prepaid-review .el-dialog__footer {
+  padding: 0 20px 20px;
+}
+.prepaid-review .el-dialog__footer .dialog-footer {
+  padding: 0 15px 20px;
+}

@@ -1,0 +1,78 @@
+.payLogFee {
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  margin: 10px 0 0 0;
+}
+.payLogFee .vxe-toolbar {
+  padding: 0;
+}
+.payLogFee .vxe-toolbar span {
+  margin-right: 10px;
+  font-size: 13px;
+}
+.payLogFee .vxe-toolbar .el-date-editor {
+  margin-right: 10px;
+  width: 250px;
+}
+.payLogFee .vxe-toolbar .vxe-input--wrapper {
+  height: 32px;
+  margin-right: 10px;
+}
+.payLogFee .vxe-toolbar .el-input {
+  width: 180px;
+}
+.payLogFee .vxe-toolbar .el-button {
+  font-size: 13px;
+}
+.payLogFee .vxe-toolbar .vxe-custom--wrapper {
+  bottom: 0px;
+}
+.payLogFee .vxe-toolbar .vxe-custom--wrapper .vxe-custom--setting-btn {
+  font-size: 15px;
+}
+.payLogFee .vxe-toolbar .vxe-custom--wrapper .vxe-custom--option-wrapper {
+  bottom: 40px;
+}
+.payLogFee .vxe-table {
+  height: 86%;
+  margin: 10px 0 10px 0 ;
+}
+.payLogFee .vxe-table .vxe-table--body-wrapper {
+  height: 90.5%;
+}
+.payLogFee .vxe-table .vxe-table--body-wrapper::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+  background-color: #F5F5F5;
+}
+.payLogFee .vxe-table .vxe-table--body-wrapper::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  background-color: #F5F5F5;
+}
+.payLogFee .vxe-table .vxe-table--body-wrapper::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #dfdddd;
+}
+.payLogFee .el-pagination {
+  float: left;
+  margin-right: 20px;
+}
+.payLogFee .group {
+  margin-left: 10px;
+}
+.payLogFee .btn-export {
+  margin-right: 40px;
+}
+@media screen and (min-width: 1800px) {
+  .payLogFee .vxe-table {
+    height: 89%;
+    margin: 10px 0 10px 0 ;
+  }
+  .payLogFee .vxe-table .vxe-table--body-wrapper {
+    height: 92.5%;
+  }
+}

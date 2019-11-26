@@ -1,0 +1,110 @@
+// 区域管理样式
+
+@region-header--fs: 15px;
+@region-header--h: 9%;
+@region-header-input--w: 40%;
+@region-header-button--fs: 13px;
+@region-tree--h: 91%;
+@region-tree-Cable--c: #4386c6;
+.region {
+  margin: 10px 0 0 0;
+    .region-header {
+      padding: 10px;
+      height: @region-header--h;
+      box-sizing: border-box;
+      border-bottom: 1px solid #F5F5F5;
+
+      .region-label {
+        font-size: @region-header-button--fs;
+        margin: 3px 10px 0 0;
+      }
+      .el-input{
+        width: @region-header-input--w;
+        margin-right: 12px;
+        vertical-align: top;
+        .el-input__inner{
+          height: 36px;
+          line-height: 36px;
+        }
+      }
+      .el-button{
+        font-size: @region-header-button--fs;
+        span{
+          margin:0 10px;
+        }
+      }
+    }
+
+  .el-tree {
+    height: @region-tree--h;
+    overflow-y: auto;
+    height: 90%;
+    .el-tree-node__label{
+      font-size: @region-header--fs;
+    }
+  }
+
+  .el-tree::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+    background-color: #F5F5F5;
+  }
+  .el-tree::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    background-color: #F5F5F5;
+  }
+  .el-tree::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+    background-color: rgb(223, 221, 221);
+  }
+
+  .el-tree-node{
+    position: relative;
+    padding-left: 16px;
+  }
+  .el-tree-node__children{
+    padding-left: 16px;
+  }
+  .el-tree-node :last-child:before {
+    height: 38px;
+  }
+  .el-tree>.el-tree-node:before{
+    border-left: none;
+  }
+  .el-tree>.el-tree-node:after{
+    border-top: none;
+  }
+  .el-tree-node:before,.el-tree-node:after{
+    content: "";
+    left: -4px;
+    position: absolute;
+    right: auto;
+    border-width: 1px;
+  }
+  .tree :first-child .el-tree-node:before{
+    border-left: none;
+  }
+  .el-tree-node:before {
+    border-left: 1px dashed @region-tree-Cable--c;
+    bottom: 0px;
+    height: 100%;
+    top: -20px;
+    width: 1px;
+  }
+  .el-tree-node:after {
+    border-top: 1px dashed @region-tree-Cable--c;
+    height: 20px;
+    top: 17px;
+    width: 24px;
+  }
+}
+
+@media screen and (min-width: 1800px) {
+  .region {
+    .region-header {
+      line-height: 50px;
+    }
+  }
+}

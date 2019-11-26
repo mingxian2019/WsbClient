@@ -1,0 +1,55 @@
+.oprtsyot {
+  padding: 10px;
+  box-sizing: border-box;
+  margin: 10px 0 0 0;
+}
+.oprtsyot .vxe-toolbar {
+  padding: 0;
+}
+.oprtsyot .vxe-toolbar span {
+  margin-left: 10px;
+}
+.oprtsyot .vxe-toolbar .el-button {
+  font-size: 13px;
+}
+.oprtsyot .vxe-toolbar .vxe-custom--setting-btn {
+  font-size: 15px;
+}
+.oprtsyot .vxe-toolbar .vxe-custom--wrapper {
+  bottom: 0px;
+  left: 0;
+}
+.oprtsyot .vxe-toolbar .vxe-custom--wrapper .vxe-custom--option-wrapper {
+  bottom: 40px;
+}
+.oprtsyot .vxe-table {
+  height: 86%;
+  margin: 10px 0 10px 0 ;
+}
+.oprtsyot .vxe-table .vxe-table--body-wrapper {
+  height: 90.5%;
+}
+.oprtsyot .vxe-table .vxe-table--body-wrapper::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+  background-color: #F5F5F5;
+}
+.oprtsyot .vxe-table .vxe-table--body-wrapper::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  background-color: #F5F5F5;
+}
+.oprtsyot .vxe-table .vxe-table--body-wrapper::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #dfdddd;
+}
+@media screen and (min-width: 1800px) {
+  .oprtsyot .vxe-table {
+    height: 89%;
+    margin: 10px 0 10px 0 ;
+  }
+  .oprtsyot .vxe-table .vxe-table--body-wrapper {
+    height: 92.5%;
+  }
+}

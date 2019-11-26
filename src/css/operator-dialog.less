@@ -1,0 +1,26 @@
+@import '../css/tool.less';
+@operator-dialog--w: 30%;
+@el-form-item--mb: 10px;
+.operator-dialog {
+  .el-dialog{
+    min-width: 400px;
+  }
+  .p0{
+    padding: 0;
+  }
+  .el-form {
+    &-item{
+      margin-bottom: @el-form-item--mb;
+      &__label{
+        padding: 0;
+        line-height: 20px;
+      }
+      &__content {
+        .el-select{
+          width: 100%;
+        }
+      }
+    }
+  }
+  .setEl-dialog(@operator-dialog--w)
+}

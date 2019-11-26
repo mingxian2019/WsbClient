@@ -1,0 +1,45 @@
+@import '../css/tool.less';
+@prepaid-form--w: 40%;
+.prepaid-review{
+
+  .el-dialog{
+    margin-top: 30vh !important;
+  }
+  .el-form {
+
+    .el-form-item{
+      display: inline-block;
+      margin: 0 10px 10px 0;
+
+      .el-form-item__label{
+        line-height: 32px;
+      }
+      .el-form-item__content{
+        line-height: 32px;
+      }
+      .el-input{
+        width: 130px;
+      }
+    }
+    .price{
+      margin-right: 20px;
+    }
+    .unit{
+      padding-left: 5px;
+      width: 100%;
+      height: 30px;
+      line-height: 30px;
+      border: 1px solid rgb(236, 236, 236);
+      // background-color: rgb(240, 240, 240);
+      &-label{
+        margin-left: 10px;
+      }
+      &-label:first-child {
+        margin-left: 35px;
+      }
+    }
+  }
+
+  .setEl-dialog(@prepaid-form--w)
+}
+

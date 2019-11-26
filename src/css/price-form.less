@@ -1,0 +1,41 @@
+@import '../css/tool.less';
+@price-edit--w: 25%;
+.price-form{
+  .el-dialog{
+    .el-dialog__body {
+      padding: 0;
+      .grouping{
+        margin: 0;
+        .grouping-content{
+          padding: 25px;
+        }
+      }
+    }
+    .el-dialog__footer{
+      padding: 25px;
+    }
+  }
+
+  .el-form{
+    .el-select {
+      width: 100%;
+    }
+    .el-form-item{
+      padding-left: 0!important;
+      .el-form-item__label{
+        line-height: 32px;
+        text-align: right;
+        width: 120px!important;
+      }
+      .el-form-item__content{
+        line-height: 32px;
+        margin-left: 120px!important;
+      }
+    }
+    .last-item{
+      margin-bottom: 0px!important;
+    }
+
+  }
+  .setEl-dialog(@price-edit--w)
+}

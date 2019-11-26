@@ -1,0 +1,88 @@
+.prepay {
+  margin: 10px 0 0 0;
+  padding: 10px;
+  box-sizing: border-box;
+}
+.prepay .vxe-toolbar {
+  padding: 0;
+}
+.prepay .vxe-toolbar .vxe-button--wrapper .el-input {
+  width: 140px;
+  margin-right: 10px;
+}
+.prepay .vxe-toolbar .vxe-button--wrapper .el-select {
+  width: 160px;
+  margin-right: 10px;
+}
+.prepay .vxe-toolbar .vxe-button--wrapper .el-select .el-input {
+  width: 100%;
+}
+.prepay .vxe-toolbar .vxe-button--wrapper span {
+  margin-right: 10px;
+  font-size: 13px;
+}
+.prepay .vxe-toolbar .vxe-button--wrapper .el-popover {
+  margin-left: 10px;
+}
+.prepay .vxe-toolbar .vxe-button--wrapper .btn-SMS {
+  margin: 0px 10px 0 0;
+}
+.prepay .vxe-toolbar .vxe-button--wrapper .el-button {
+  padding: 9px 12px;
+  font-size: 13px;
+}
+.prepay .vxe-toolbar .vxe-custom--wrapper {
+  bottom: 0px;
+}
+.prepay .vxe-toolbar .vxe-custom--wrapper .vxe-custom--setting-btn {
+  font-size: 15px;
+}
+.prepay .vxe-toolbar .vxe-custom--wrapper .vxe-custom--option-wrapper {
+  bottom: 40px;
+}
+.prepay .vxe-table {
+  width: 100%;
+  height: 86%;
+  margin: 10px 0 10px 0 ;
+}
+.prepay .vxe-table .vxe-table--body-wrapper {
+  height: 90%;
+}
+.prepay .vxe-table .vxe-table--body-wrapper::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  background-color: #F5F5F5;
+}
+.prepay .vxe-table .vxe-table--body-wrapper::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  background-color: #F5F5F5;
+}
+.prepay .vxe-table .vxe-table--body-wrapper::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #dfdddd;
+}
+.prepay .vxe-table .keyword-lighten {
+  color: #000;
+  background-color: #FFFF00;
+}
+.prepay .el-pagination {
+  float: left;
+  margin-right: 20px;
+}
+.prepay .group {
+  margin-left: 10px;
+}
+.prepay .btn-export {
+  margin-right: 40px;
+}
+@media screen and (min-width: 1800px) {
+  .prepay .vxe-table {
+    height: 89%;
+    margin: 10px 0 10px 0 ;
+  }
+  .prepay .vxe-table .vxe-table--body-wrapper {
+    height: 92.5%;
+  }
+}

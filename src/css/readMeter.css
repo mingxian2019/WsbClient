@@ -1,0 +1,95 @@
+.readMeter {
+  margin: 10px 0 0 0;
+  padding: 10px;
+  box-sizing: border-box;
+}
+.readMeter .vxe-toolbar {
+  padding: 0;
+}
+.readMeter .vxe-toolbar .vxe-button--wrapper .el-select {
+  width: 130px;
+  margin-right: 10px;
+}
+.readMeter .vxe-toolbar .vxe-button--wrapper .el-select .el-input {
+  width: 100%;
+}
+.readMeter .vxe-toolbar .vxe-button--wrapper .el-input {
+  width: 150px;
+  margin-right: 10px;
+}
+.readMeter .vxe-toolbar .vxe-button--wrapper .el-button {
+  padding: 9px 10px;
+}
+.readMeter .vxe-toolbar .vxe-button--wrapper .el-date-editor {
+  margin-right: 10px;
+}
+.readMeter .vxe-toolbar .vxe-button--wrapper .uploadFile {
+  margin-left: 10px;
+}
+.readMeter .vxe-toolbar .vxe-button--wrapper .vxe-input--wrapper {
+  width: 160px;
+  height: 32px;
+  margin-right: 10px;
+}
+.readMeter .vxe-toolbar .vxe-button--wrapper span {
+  margin-right: 10px;
+  font-size: 13px;
+}
+.readMeter .vxe-toolbar .vxe-button--wrapper .el-button {
+  font-size: 13px;
+}
+.readMeter .vxe-toolbar .vxe-custom--wrapper {
+  bottom: 0px;
+}
+.readMeter .vxe-toolbar .vxe-custom--wrapper .vxe-custom--setting-btn {
+  font-size: 15px;
+}
+.readMeter .vxe-toolbar .vxe-custom--wrapper .vxe-custom--option-wrapper {
+  bottom: 40px;
+}
+.readMeter .vxe-table {
+  height: 86%;
+  margin-top: 10px;
+  width: 100%;
+  margin: 10px 0 10px 0 ;
+}
+.readMeter .vxe-table .vxe-table--body-wrapper {
+  height: 90%;
+}
+.readMeter .vxe-table .vxe-table--body-wrapper::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+  background-color: #F5F5F5;
+}
+.readMeter .vxe-table .vxe-table--body-wrapper::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #F5F5F5;
+}
+.readMeter .vxe-table .vxe-table--body-wrapper::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #dfdddd;
+}
+.readMeter .vxe-table .keyword-lighten {
+  color: #000;
+  background-color: #FFFF00;
+}
+.readMeter .el-pagination {
+  float: left;
+  margin-right: 20px;
+}
+.readMeter .group {
+  margin-left: 10px;
+}
+.readMeter .btn-export {
+  margin-right: 40px;
+}
+@media screen and (min-width: 1800px) {
+  .readMeter .vxe-table {
+    height: 89%;
+    margin: 10px 0 10px 0 ;
+  }
+  .readMeter .vxe-table .vxe-table--body-wrapper {
+    height: 92.5%;
+  }
+}

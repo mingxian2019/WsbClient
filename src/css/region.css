@@ -1,0 +1,92 @@
+.region {
+  margin: 10px 0 0 0;
+}
+.region .region-header {
+  padding: 10px;
+  height: 9%;
+  box-sizing: border-box;
+  border-bottom: 1px solid #F5F5F5;
+}
+.region .region-header .region-label {
+  font-size: 13px;
+  margin: 3px 10px 0 0;
+}
+.region .region-header .el-input {
+  width: 40%;
+  margin-right: 12px;
+  vertical-align: top;
+}
+.region .region-header .el-button {
+  font-size: 13px;
+}
+.region .region-header .el-button span {
+  margin: 0 10px;
+}
+.region .el-tree {
+  height: 91%;
+  overflow-y: auto;
+  height: 90%;
+}
+.region .el-tree .el-tree-node__label {
+  font-size: 15px;
+}
+.region .el-tree::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+  background-color: #F5F5F5;
+}
+.region .el-tree::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  background-color: #F5F5F5;
+}
+.region .el-tree::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #dfdddd;
+}
+.region .el-tree-node {
+  position: relative;
+  padding-left: 16px;
+}
+.region .el-tree-node__children {
+  padding-left: 16px;
+}
+.region .el-tree-node :last-child:before {
+  height: 38px;
+}
+.region .el-tree > .el-tree-node:before {
+  border-left: none;
+}
+.region .el-tree > .el-tree-node:after {
+  border-top: none;
+}
+.region .el-tree-node:before,
+.region .el-tree-node:after {
+  content: "";
+  left: -4px;
+  position: absolute;
+  right: auto;
+  border-width: 1px;
+}
+.region .tree :first-child .el-tree-node:before {
+  border-left: none;
+}
+.region .el-tree-node:before {
+  border-left: 1px dashed #4386c6;
+  bottom: 0px;
+  height: 100%;
+  top: -20px;
+  width: 1px;
+}
+.region .el-tree-node:after {
+  border-top: 1px dashed #4386c6;
+  height: 20px;
+  top: 17px;
+  width: 24px;
+}
+@media screen and (min-width: 1800px) {
+  .region .region-header {
+    line-height: 50px;
+  }
+}

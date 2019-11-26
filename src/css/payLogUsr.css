@@ -1,0 +1,81 @@
+.payLogUsr {
+  padding: 10px;
+  box-sizing: border-box;
+  margin: 10px 0 0 0;
+}
+.payLogUsr .vxe-toolbar {
+  padding: 0;
+}
+.payLogUsr .vxe-toolbar span {
+  font-size: 13px;
+  margin-right: 10px;
+}
+.payLogUsr .vxe-toolbar .input-inquire {
+  width: 140px;
+}
+.payLogUsr .vxe-toolbar .el-select {
+  width: 130px;
+}
+.payLogUsr .vxe-toolbar .el-button {
+  font-size: 13px;
+}
+.payLogUsr .vxe-toolbar .el-date-editor {
+  width: 220px;
+}
+.payLogUsr .vxe-toolbar .el-date-editor .el-range-separator {
+  width: 12%;
+}
+.payLogUsr .vxe-toolbar .vxe-custom--wrapper {
+  bottom: 0px;
+}
+.payLogUsr .vxe-toolbar .vxe-custom--wrapper .vxe-custom--setting-btn {
+  font-size: 15px;
+}
+.payLogUsr .vxe-toolbar .vxe-custom--wrapper .vxe-custom--option-wrapper {
+  bottom: 40px;
+}
+.payLogUsr .vxe-toolbar .el-date-editor {
+  width: 160px;
+  margin-right: 10px;
+}
+.payLogUsr .vxe-table {
+  height: 86%;
+  margin: 10px 0 10px 0 ;
+}
+.payLogUsr .vxe-table .vxe-table--body-wrapper {
+  height: 90%;
+}
+.payLogUsr .vxe-table .vxe-table--body-wrapper::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  background-color: #F5F5F5;
+}
+.payLogUsr .vxe-table .vxe-table--body-wrapper::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  background-color: #F5F5F5;
+}
+.payLogUsr .vxe-table .vxe-table--body-wrapper::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #dfdddd;
+}
+.payLogUsr .el-pagination {
+  float: left;
+  margin-right: 20px;
+}
+.payLogUsr .group {
+  margin-left: 10px;
+}
+.payLogUsr .uploadFile {
+  margin-right: 40px;
+}
+@media screen and (min-width: 1800px) {
+  .payLogUsr .vxe-table {
+    height: 89%;
+    margin: 10px 0 10px 0 ;
+  }
+  .payLogUsr .vxe-table .vxe-table--body-wrapper {
+    height: 92.5%;
+  }
+}

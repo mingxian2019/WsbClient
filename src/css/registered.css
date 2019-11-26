@@ -1,0 +1,75 @@
+.registered .header ul {
+  margin-right: 300px ;
+}
+.registered-content {
+  height: 90%;
+  background: #F6F6F6;
+  padding: 20px 300px;
+  box-sizing: border-box;
+}
+.registered-content h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.registered-content-form {
+  background: #ffffff;
+}
+.registered-content-form-title {
+  height: 60px;
+  width: 100%;
+  position: relative;
+  border-bottom: 1px solid #eaeaea;
+}
+.registered-content-form-title i {
+  font-size: 30px;
+  color: #00A4FF;
+  left: 50%;
+  margin-left: -50px;
+  top: 15px;
+  position: absolute;
+}
+.registered-content-form-title span {
+  font-size: 16px;
+  position: absolute;
+  top: 18px;
+  left: 50%;
+  margin-left: -10px;
+}
+.registered-content .el-form {
+  padding: 20px 30% 40px 30%;
+  box-sizing: border-box;
+}
+.registered-content .el-form .dividing {
+  width: 100%;
+  margin: 0 0 20px 0;
+  border-bottom: 1px solid #eaeaea;
+  position: relative;
+}
+.registered-content .el-form .dividing::after {
+  content: '手机信息';
+  display: block;
+  padding: 0 5px;
+  position: absolute;
+  left: 50%;
+  top: -9px;
+  margin-left: -40px;
+  font-size: 14px;
+  background: #ffffff;
+  color: #767677;
+}
+.registered-content .el-form .el-cascader {
+  width: 100%;
+}
+.registered-content .el-form .el-btn {
+  background: #fff;
+  border-color: #00A4FF;
+  color: #00A4FF;
+  border-radius: 0;
+}
+.registered-content .el-form .form-btns .el-checkbox {
+  margin-right: 10px;
+}
+.registered-content .el-form .submit {
+  width: 100%;
+  margin-top: 20px;
+}

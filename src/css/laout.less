@@ -1,0 +1,54 @@
+@main--bgc:#f5f5f5;
+@el-main-top-currentArea--fs: 14px;
+@card--bgc: #ffffff;
+@card--h: 87%;
+.main {
+  height: 100%;
+  background: @main--bgc;
+  // min-width: 1500px;
+  // min-height: 800px;
+  // overflow: auto;
+  .el-header {
+    padding: 0 ;
+  }
+  .el-container{
+    height: 100%;
+    // .el-aside{
+    //   // float: left;
+    //   height: 100%;
+    //   // overflow: auto;
+    //   width: 300px;
+    // }
+    .resize{
+      width: 5px;
+      height: 100%;
+      cursor: w-resize;
+      float: left;
+    }
+    .el-main {
+      height: 100%;
+      padding: 10px 20px 20px 20px;
+      &-top{
+        height: 20px;
+        line-height: 20px;
+        &-currentArea {
+          font-size: @el-main-top-currentArea--fs;
+        }
+        .el-breadcrumb{
+          float:right;
+          margin: 3px 50px 0 0 ;
+        }
+      }
+      .card{
+        width: 100%;
+        height: @card--h;
+        // box-shadow: 1px 1px 18px 1px rgba(0, 0, 0, 0.1);
+        background: @card--bgc;
+        border-radius: 5px;
+        box-sizing: border-box;
+      }
+    }
+  }
+
+}
+

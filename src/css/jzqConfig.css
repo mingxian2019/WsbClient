@@ -1,0 +1,97 @@
+.jzqConfig {
+  position: relative;
+  margin-top: 10px;
+}
+.jzqConfig-title {
+  height: 100%;
+  width: 250px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: #ffffff;
+  border-right: 1px solid #e4e7ed;
+}
+.jzqConfig-title ul li {
+  line-height: 50px;
+  padding-left: 10px;
+  font-size: 16px;
+  font-weight: 700;
+  box-sizing: border-box;
+  border-bottom: 1px solid #e9e9e9;
+}
+.jzqConfig-title ul li:hover {
+  background: #d8d8d8;
+  color: #409eff;
+  border-left: 2px solid #409eff;
+}
+.jzqConfig-title-active {
+  background: #d8d8d8;
+  color: #409eff;
+  border-left: 2px solid #409eff;
+}
+.jzqConfig-content {
+  height: 100%;
+  width: 100%;
+  min-width: 800px;
+  padding: 5px 15px 15px 270px;
+  box-sizing: border-box;
+  background: #f0f0f0;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.jzqConfig-content-item {
+  background: #f7f7f7;
+  margin-bottom: 20px;
+  border-radius: 5px;
+}
+.jzqConfig-content-item-label {
+  height: 30px;
+  line-height: 30px;
+  padding-left: 10px;
+  margin-bottom: 5px;
+  color: #000000;
+  background: #e0e0e0;
+  font-weight: 700;
+}
+.jzqConfig-content-item-children {
+  padding: 0 10px 5px 20px;
+}
+.jzqConfig-content::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+  background-color: #F5F5F5;
+}
+.jzqConfig-content::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  background-color: #F5F5F5;
+}
+.jzqConfig-content::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #dfdddd;
+}
+.jzqConfig .el-input {
+  width: 100%;
+}
+.jzqConfig .el-form-item {
+  margin: 0 10px 10px 0;
+  display: inline-block;
+}
+.jzqConfig .el-form-item .el-form-item__label {
+  padding: 0px;
+}
+.jzqConfig .el-form-item .el-form-item__error {
+  padding: 0;
+}
+.jzqConfig .el-select {
+  width: 188px;
+  margin: 0 10px 0 0;
+}
+.jzqConfig .el-checkbox {
+  width: 188px;
+  margin: 0 10px 0 0;
+}
+.jzqConfig .el-date-editor {
+  width: 188px;
+}

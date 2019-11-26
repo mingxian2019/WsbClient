@@ -1,0 +1,89 @@
+.basicInfo {
+  background: #F4F4F4;
+  margin-top: 10px;
+}
+.basicInfo-block {
+  width: 100%;
+  height: 100%;
+  padding: 30px;
+  background: #fff;
+  box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+  box-sizing: border-box;
+}
+.basicInfo-block-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 25px;
+}
+.basicInfo-block-item {
+  height: 30px;
+  line-height: 30px;
+  margin-bottom: 10px;
+  vertical-align: middle;
+}
+.basicInfo-block-item .item-label {
+  width: 90px;
+  display: inline-block;
+  font-size: 16px;
+  color: #666;
+  margin: 0 20px 0 30px;
+}
+.basicInfo-block-item .long-label {
+  width: 200px;
+}
+.basicInfo-block-item .el-button {
+  margin-left: 20px;
+  font-size: 16px;
+  padding: 0 10px;
+}
+.basicInfo-block-item .item-content {
+  display: inline-block;
+  font-size: 16px;
+  color: #000;
+}
+.basicInfo-block-item .item-button {
+  display: inline-block;
+  font-size: 16px;
+}
+.basicInfo-block-item .item-bts {
+  display: inline-block;
+}
+.basicInfo-block-item .edit-input {
+  width: 130px;
+  height: 30px;
+  padding-left: 10px;
+  outline: none;
+  background: none;
+  display: inline-block;
+  vertical-align: top;
+  border: 1px solid #ccc;
+}
+.basicInfo-block-item .inUsing {
+  color: #18ce27;
+}
+.basicInfo-block-item .disable {
+  color: #ff6956;
+}
+.basicInfo-block .item40 {
+  display: inline-block;
+  width: 45%;
+}
+.basicInfo-block .item60 {
+  display: inline-block;
+  width: 55%;
+}
+.basicInfo-block .mt25 {
+  margin-top: 25px;
+}
+.basicInfo-block .el-input {
+  width: 30%;
+  display: block;
+  margin: 0 0 25px 20px;
+}
+.basicInfo-block .btn-submit {
+  padding: 12px 20px;
+  margin-left: 20px;
+  font-size: 14px;
+}

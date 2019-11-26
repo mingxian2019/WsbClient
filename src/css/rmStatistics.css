@@ -1,0 +1,16 @@
+.rmStatistics {
+  width: 100%;
+  height: 100%;
+  margin: 10px 0 0 0;
+  padding: 20px;
+}
+.rmStatistics #electricity {
+  float: left;
+  width: 50%;
+  height: 100%;
+}
+.rmStatistics #water {
+  float: left;
+  width: 50%;
+  height: 100%;
+}
