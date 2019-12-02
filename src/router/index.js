@@ -162,7 +162,7 @@ const router = new Router({
     {
       name: 'cloudAccountInfo',
       path: '/CaInfo',
-      meta: { label: '云账户信息' },
+      meta: { label: '云账户管理' },
       component: {
         render: c => c('router-view')
       },
@@ -178,6 +178,30 @@ const router = new Router({
           path: '/CaInfo/cost',
           meta: { label: '收支明细' },
           component: () => import('@/views/Cost')
+        },
+        {
+          name: 'recharge',
+          path: '/CaInfo/recharge',
+          meta: { label: '充值' },
+          component: () => import('@/views/recharge')
+        },
+        {
+          name: 'rechargeRecord',
+          path: '/CaInfo/rechargeRecord',
+          meta: { label: '充值记录' },
+          component: () => import('@/views/rechargeRecord')
+        },
+        {
+          name: 'pubRecRecord',
+          path: '/CaInfo/pubRecRecord',
+          meta: { label: '对公汇款记录' },
+          component: () => import('@/views/pubRecRecord')
+        },
+        {
+          name: 'payment',
+          path: '/CaInfo/payment',
+          meta: { label: '订单支付' },
+          component: () => import('@/views/payment')
         }
       ]
     }]

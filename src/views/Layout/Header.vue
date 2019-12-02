@@ -17,7 +17,7 @@
                   <span class='cost-content'> {{ balance }} </span>
                 </div>
                 <div class='fee-content-item item-r lastbm0 '>
-                  <router-link class='const-link' to='/CaInfo/cost'>立即充值</router-link>
+                  <router-link class='const-link' to='/CaInfo/recharge'>立即充值</router-link>
                   <router-link class='const-link lastbm0' to='/CaInfo/cost' style='color: #409EFF'>收支明细</router-link>
                 </div>
               </li>
