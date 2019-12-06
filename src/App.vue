@@ -37,6 +37,8 @@ export default {
       }
     })
   },
+  mounted(){
+  },
   destroyed () {
     // websocketclose()
   },

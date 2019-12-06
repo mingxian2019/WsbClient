@@ -192,17 +192,11 @@ const router = new Router({
           component: () => import('@/views/rechargeRecord')
         },
         {
-          name: 'pubRecRecord',
-          path: '/CaInfo/pubRecRecord',
-          meta: { label: '对公汇款记录' },
-          component: () => import('@/views/pubRecRecord')
+          name: 'invoiceInquiry',
+          path: '/CaInfo/invoiceInquiry',
+          meta: { label: '开票进度查询' },
+          component: () => import('@/views/invoiceInquiry')
         },
-        {
-          name: 'payment',
-          path: '/CaInfo/payment',
-          meta: { label: '订单支付' },
-          component: () => import('@/views/payment')
-        }
       ]
     }]
   },

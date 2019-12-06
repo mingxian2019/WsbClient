@@ -123,10 +123,9 @@ const MeterTypes = [
 
 const MeterReadEx = [
   { id: 0, value: '全部' },
-  { id: 1, value: '底数变小' },
-  { id: 2, value: '用量过大' },
-  { id: 3, value: '用量过小' },
-  { id: 4, value: '费率总和不等' }
+  { id: 1, value: '等待确认客户打款' },
+  { id: 2, value: '审核通过' },
+  { id: 3, value: '审核不通过' },
 ]
 
 const UsrFeeState = [

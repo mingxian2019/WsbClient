@@ -14,7 +14,7 @@
           <span class='el-main-top-currentArea'> {{ title }} <span style="color:#409EFF;font-weight:700">{{ currentAreaMonitor }}</span></span>
         </div>
         <keep-alive>
-          <div class="card">
+          <div class="card" ref="card">
             <router-view></router-view>
           </div>
         </keep-alive>
