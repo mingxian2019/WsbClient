@@ -1,13 +1,9 @@
 <template>
   <!-- 抄表异常管理 -->
-  <div class="rmReadMeterEx hw100 rechargeRecord">
-    <vxe-toolbar :data="readExData" setting>
+  <div class="rmReadMeterEx hw100 reorder">
+    <vxe-toolbar :data="readExData">
       <template v-slot:buttons>
-        <span>起始时间</span>
-        <el-date-picker v-model="dateFrom" type="date" size="small" placeholder="选择日期"></el-date-picker>
-        <span>结束时间</span>
-        <el-date-picker v-model="dateEnd" type="date" size="small" placeholder="选择日期"></el-date-picker>
-        <span>审核状态</span>
+        <span>是否已重新开票</span>
         <el-select
           v-model="readExValue"
           placeholder="请选择"
@@ -16,12 +12,13 @@
           class="auditStatus"
         >
           <el-option
-            v-for="item in meterReadEx"
+            v-for="item in ReoderInvoice"
             :key="item.id"
             :label="item.value"
             :value="item.id"
           ></el-option>
         </el-select>
+        <span>发票号：</span>
         <el-input
           placeholder="请输入内容"
           prefix-icon="el-icon-search"
@@ -38,44 +35,38 @@
       highlight-hover-row
       highlight-current-row
       resizable
-      :tree-config="{key: 'submitTime', children: 'children', trigger: 'cell'}"
       :radio-config="{labelField: 'rechargeType'}"
       :data.sync="list"
       :customs.sync="customColumns"
     >
-      <vxe-table-column field="submitTime" title="提交时间" tree-node>
+      <vxe-table-column field="invoinceNo" title="发票号">
         <template v-slot="{ row }">
-          <span v-html="row.submitTime"></span>
+          <span v-html="row.invoinceNo"></span>
         </template>
       </vxe-table-column>
-      <vxe-table-column field="rechargeAmount" title="充值金额">
+      <vxe-table-column field="isRecord" title="是否已重开">
         <template v-slot="{ row }">
-          <span v-html="row.rechargeAmount"></span>
+          <span v-html="row.isRecord"></span>
         </template>
       </vxe-table-column>
-      <vxe-table-column field="serviceCharge" title="手续费">
+      <vxe-table-column field="expressType" title="快递方式">
         <template v-slot="{ row }">
-          <span v-html="row.serviceCharge"></span>
+          <span v-html="row.expressType"></span>
         </template>
       </vxe-table-column>
-      <vxe-table-column field="rechargeType" title="充值方式">
+      <vxe-table-column field="expressNo" title="快递号">
         <template v-slot="{ row }">
-          <span v-html="row.rechargeType"></span>
+          <span v-html="row.expressNo"></span>
         </template>
       </vxe-table-column>
-      <vxe-table-column field="auditStatus" title="审核状态">
+      <vxe-table-column field="applyTime" title="申请时间">
         <template v-slot="{ row }">
-          <span v-html="row.auditStatus"></span>
+          <span v-html="row.applyTime"></span>
         </template>
       </vxe-table-column>
-      <vxe-table-column field="bankName" title="转账银行">
+      <vxe-table-column field="remarks" title="原因备注">
         <template v-slot="{ row }">
-          <span v-html="row.bankName"></span>
-        </template>
-      </vxe-table-column>
-      <vxe-table-column field="bankAccount" title="转账人卡号">
-        <template v-slot="{ row }">
-          <span v-html="row.bankAccount"></span>
+          <span v-html="row.remarks"></span>
         </template>
       </vxe-table-column>
     </vxe-table>
@@ -90,13 +81,13 @@
       :total="origin.length"
     ></el-pagination>
     <a id="downlink"></a>
-    <el-button
+    <!-- <el-button
       size="small"
       @click="downloadFile(origin)"
       class="btn-export btn-fun uploadFile"
       icon="el-icon-upload2"
       style="margin-right:58px!important"
-    >导出</el-button>
+    >导出</el-button> -->
   </div>
 </template>
 
@@ -113,7 +104,7 @@ export default {
   name: "rmAbnormal",
   data() {
     return {
-      meterReadEx: Config.MeterReadEx,
+      ReoderInvoice: Config.ReoderInvoice,
       outFile: "",
       readExValue: "",
       search: "",
@@ -142,13 +133,7 @@ export default {
         let filterRE = new RegExp(filterName, "gi");
         let options = { children: "children" };
         let searchProps = [
-          "bankName",
-          "auditStatus",
-          "bankAccount",
-          "submitTime",
-          "serviceCharge",
-          "rechargeType",
-          "rechargeAmount"
+          "invoinceNo",
         ];
         let rest = XEUtils.searchTree(
           this.readExData,
@@ -264,26 +249,9 @@ export default {
       let property = column["property"];
       return row[property] === value;
     },
-    downloadFile: function(rs) {
-      // 点击导出按钮
-      let data = [{}];
-      for (let k in rs[0]) {
-        data[0][k] = k;
-      }
-      data = data.concat(rs);
-      data[0].submitTime = "提交时间";
-      data[0].rechargeAmount = "充值金额";
-      data[0].serviceCharge = "手续费";
-      data[0].rechargeType = "充值方式";
-      data[0].auditStatus = "审核状态 ";
-      data[0].bankName = "转账银行";
-      data[0].bankAccount = "转账人卡号";
-
-      downloadExl(data, "充值记录查询表", 7, this.outFile);
-    },
     exTypeChange(val) {
       let filterData = this.readExData.filter((element, index, array) => {
-        return val === 0 || Config.getMeterReadExId(element.ExType) === val;
+        return val === 0 || Config.getReoderInvoiceId(element.ExType) === val;
       });
       this.$refs.xTable.loadData(filterData);
     }
@@ -293,7 +261,7 @@ export default {
 
 <style lang='less'  type='text/css' scope>
 @import "../../css/rmReadMeterEx.less";
-.rechargeRecord {
+.reorder {
   position: relative;
   .vxe-toolbar .vxe-custom--wrapper {
     position: absolute !important;

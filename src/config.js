@@ -128,6 +128,21 @@ const MeterReadEx = [
   { id: 3, value: '审核不通过' },
 ]
 
+const InvoiceType = [
+  { id: 0, value: '显示全部订单' },
+  { id: 1, value: '已处理' },
+  { id: 2, value: '未处理' },
+]
+
+const SpecialInvoice = [
+  { id: 0, value: '显示全部订单' },
+  { id: 1, value: '增值税专用发票' },
+]
+const ReoderInvoice = [
+  { id: 0, value: '全部' },
+  { id: 0, value: '否' },
+  { id: 1, value: '是' },
+]
 const UsrFeeState = [
   { id: 0, value: '全部用户' },
   { id: 1, value: '正常用户' },
@@ -315,6 +330,30 @@ export function getMeterReadExId (pValue) {
   return getConfigId(MeterReadEx, pValue)
 }
 
+export function getInvoiceTypeValue (pId) {
+  return getConfigValue(InvoiceType, pId)
+}
+
+export function getInvoiceTypeId (pValue) {
+  return getConfigId(InvoiceType, pValue)
+}
+
+export function getSpecialInvoiceValue (pId) {
+  return getConfigValue(SpecialInvoice, pId)
+}
+
+export function getSpecialInvoiceId (pValue) {
+  return getConfigId(SpecialInvoice, pValue)
+}
+
+export function getReoderInvoiceValue (pId) {
+  return getConfigValue(ReoderInvoice, pId)
+}
+
+export function getReoderInvoiceId (pValue) {
+  return getConfigId(ReoderInvoice, pValue)
+}
+
 export function getUsrFeeStateValue (pId) {
   return getConfigValue(UsrFeeState, pId)
 }
@@ -374,5 +413,8 @@ export {
   PrePayEx,
   JzqTaskUnit,
   MeterReadEx,
+  InvoiceType,
+  SpecialInvoice,
+  ReoderInvoice,
   UsrFeeState
 }

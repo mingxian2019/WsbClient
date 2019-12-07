@@ -197,6 +197,12 @@ const router = new Router({
           meta: { label: '开票进度查询' },
           component: () => import('@/views/invoiceInquiry')
         },
+        {
+          name: 'reorder',
+          path: '/CaInfo/reorder',
+          meta: { label: '重新开票申请记录' },
+          component: () => import('@/views/reorder')
+        }
       ]
     }]
   },

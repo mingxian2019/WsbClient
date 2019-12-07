@@ -9,6 +9,9 @@
       <router-link to="/CaInfo/invoiceInquiry">
         <el-button type="primary" class="rechargeRecord content-title-btn" style="margin-right: 20px;">开票查询</el-button>
       </router-link>
+      <router-link to="/CaInfo/reorder">
+        <el-button type="primary" class="rechargeRecord content-title-btn" style="margin-right: 20px;">重新开票申请记录</el-button>
+      </router-link>
     </div>
     <template>
       <el-tabs v-model="activeName" type="card" @tab-click="handleClick">
