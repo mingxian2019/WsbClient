@@ -79,7 +79,7 @@ const router = new Router({
         {
           name: 'readMeterEx',
           path: '/readmeter/readMeterEx',
-          meta: { label: '抄表异常管理' },
+          meta: { label: '抄表异常查询' },
           component: () => import('@/views/ReadMeterEx')
         },
         {

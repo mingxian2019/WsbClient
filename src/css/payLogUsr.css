@@ -25,15 +25,15 @@
 .payLogUsr .vxe-toolbar .el-date-editor .el-range-separator {
   width: 12%;
 }
-.payLogUsr .vxe-toolbar .vxe-custom--wrapper {
+/* .payLogUsr .vxe-toolbar .vxe-custom--wrapper {
   bottom: 0px;
-}
+} */
 .payLogUsr .vxe-toolbar .vxe-custom--wrapper .vxe-custom--setting-btn {
   font-size: 15px;
 }
-.payLogUsr .vxe-toolbar .vxe-custom--wrapper .vxe-custom--option-wrapper {
+/* .payLogUsr .vxe-toolbar .vxe-custom--wrapper .vxe-custom--option-wrapper {
   bottom: 40px;
-}
+} */
 .payLogUsr .vxe-toolbar .el-date-editor {
   width: 160px;
   margin-right: 10px;
@@ -70,7 +70,7 @@
 .payLogUsr .uploadFile {
   margin-right: 40px;
 }
-@media screen and (min-width: 1800px) {
+/* @media screen and (min-width: 1800px) {
   .payLogUsr .vxe-table {
     height: 89%;
     margin: 10px 0 10px 0 ;
@@ -78,4 +78,4 @@
   .payLogUsr .vxe-table .vxe-table--body-wrapper {
     height: 92.5%;
   }
-}
+} */

@@ -21,12 +21,12 @@
 .concentrator .vxe-toolbar .el-button {
   font-size: 13px;
 }
-.concentrator .vxe-toolbar .vxe-custom--wrapper {
+/* .concentrator .vxe-toolbar .vxe-custom--wrapper {
   bottom: 0px;
-}
-.concentrator .vxe-toolbar .vxe-custom--wrapper .vxe-custom--option-wrapper {
+} */
+/* .concentrator .vxe-toolbar .vxe-custom--wrapper .vxe-custom--option-wrapper {
   bottom: 40px;
-}
+} */
 .concentrator .vxe-table {
   height: 86%;
   margin: 10px 0 10px 0 ;
@@ -61,11 +61,11 @@
   margin-right: 40px;
 }
 @media screen and (min-width: 1800px) {
-  .concentrator .vxe-table {
+  /* .concentrator .vxe-table {
     height: 89%;
     margin: 10px 0 10px 0 ;
   }
   .concentrator .vxe-table .vxe-table--body-wrapper {
     height: 92.5%;
-  }
+  } */
 }

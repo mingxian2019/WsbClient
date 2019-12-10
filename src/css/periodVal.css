@@ -30,15 +30,15 @@
   margin-right: 10px;
   width: 130px;
 }
-.periodVal .vxe-toolbar .vxe-custom--wrapper {
+/* .periodVal .vxe-toolbar .vxe-custom--wrapper {
   bottom: 0px;
-}
+} */
 .periodVal .vxe-toolbar .vxe-custom--wrapper .vxe-custom--setting-btn {
   font-size: 15px;
 }
-.periodVal .vxe-toolbar .vxe-custom--wrapper .vxe-custom--option-wrapper {
+/* .periodVal .vxe-toolbar .vxe-custom--wrapper .vxe-custom--option-wrapper {
   bottom: 40px;
-}
+} */
 .periodVal .vxe-table {
   height: 86%;
   margin: 10px 0 10px 0 ;
@@ -71,7 +71,7 @@
 .periodVal .btn-export {
   margin-right: 40px;
 }
-@media screen and (min-width: 1800px) {
+/* @media screen and (min-width: 1800px) {
   .periodVal .vxe-table {
     height: 89%;
     margin: 10px 0 10px 0 ;
@@ -79,4 +79,4 @@
   .periodVal .vxe-table .vxe-table--body-wrapper {
     height: 92.5%;
   }
-}
+} */

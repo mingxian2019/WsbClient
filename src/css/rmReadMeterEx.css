@@ -34,15 +34,15 @@
   margin-right: 10px;
   width: 130px;
 }
-.rmReadMeterEx .vxe-toolbar .vxe-custom--wrapper {
+/* .rmReadMeterEx .vxe-toolbar .vxe-custom--wrapper {
   bottom: 0px;
-}
+} */
 .rmReadMeterEx .vxe-toolbar .vxe-custom--wrapper .vxe-custom--setting-btn {
   font-size: 15px;
 }
-.rmReadMeterEx .vxe-toolbar .vxe-custom--wrapper .vxe-custom--option-wrapper {
+/* .rmReadMeterEx .vxe-toolbar .vxe-custom--wrapper .vxe-custom--option-wrapper {
   bottom: 40px;
-}
+} */
 .rmReadMeterEx .vxe-table {
   height: 86%;
   margin: 10px 0 10px 0 ;
@@ -75,7 +75,7 @@
 .rmReadMeterEx .btn-export {
   margin-right: 40px;
 }
-@media screen and (min-width: 1800px) {
+/* @media screen and (min-width: 1800px) {
   .rmReadMeterEx .vxe-table {
     height: 89%;
     margin: 10px 0 10px 0 ;
@@ -83,4 +83,4 @@
   .rmReadMeterEx .vxe-table .vxe-table--body-wrapper {
     height: 92.5%;
   }
-}
+} */

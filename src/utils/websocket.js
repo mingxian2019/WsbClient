@@ -14,7 +14,7 @@ var dataArray=[]
 function initWebSocket () {
   console.log("===============initWebSocket=================")
   let wsuri = 'ws://127.0.0.1:33334'
-
+  // let wsuri = 'ws://49.235.29.201:33334'
   websocket = new WebSocket(wsuri)
   websocket.onmessage = function (e) {
     websocketonmessage(e)

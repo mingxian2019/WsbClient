@@ -291,15 +291,15 @@ export default {
 };
 </script>
 
-<style lang='less'  type='text/css' scope>
+<style lang='less'  type='text/css' scoped>
 @import "../../css/rmReadMeterEx.less";
 .rechargeRecord {
   position: relative;
-  .vxe-toolbar .vxe-custom--wrapper {
-    position: absolute !important;
-    bottom: 44px !important;
-    right: 20px;
-  }
+  // .vxe-toolbar .vxe-custom--wrapper {
+  //   position: absolute !important;
+  //   bottom: 44px !important;
+  //   right: 20px;
+  // }
   .vxe-table:after {
     bottom: 1px;
   }

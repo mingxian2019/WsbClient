@@ -18,7 +18,7 @@
           placeholder="选择日期">
         </el-date-picker>
         <span>异常类型</span>
-        <el-select v-model="readExValue" placeholder="请选择" @change='exTypeChange' size='small'>
+        <el-select v-model="readExValue" placeholder="请选择" @change='exTypeChange' size='small' style="width:180px">
           <el-option
             v-for="item in meterReadEx"
             :key="item.id"
@@ -367,6 +367,6 @@ export default {
 }
 </script>
 
-<style lang='less'  type='text/css'>
+<style lang='less'  type='text/css' scoped >
 @import '../../css/rmReadMeterEx.less';
 </style>

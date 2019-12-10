@@ -14,11 +14,18 @@
 @pie-icon1--bgc: hotpink;
 @pie-icon2--bgc: skyblue;
 @line--h: 60%;
-
+.el-main {
+  overflow: hidden!important;
+  .card{
+    min-width: unset!important;
+  }
+  }
+  
 .home {
   padding: @home--p;
   box-sizing: border-box;
   margin-top: 10px;
+  
   // 广告栏
   &-banner {
     height: 30px;

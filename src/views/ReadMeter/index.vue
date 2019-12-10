@@ -41,7 +41,7 @@
       @select-change="selectChangeEvent"
       :customs.sync="customColumns">
       <vxe-table-column  type="selection" width="50" fixed="left"></vxe-table-column>
-      <vxe-table-column  field="Addr" width="300" title="表地址" sortable tree-node>
+      <vxe-table-column  field="Addr" width="180" title="表地址" sortable tree-node>
         <template v-slot="{ row }">
           <span v-html="row.Addr"></span>
         </template>
@@ -86,13 +86,12 @@
           <span v-html="row.ReadTime"></span>
         </template>
       </vxe-table-column>
-      <vxe-table-column width="300" field="Site" title="安装地址" sortable>
+      <vxe-table-column field="Site" title="安装地址" sortable>
         <template v-slot="{ row }">
           <span v-html="row.Site"></span>
         </template>
       </vxe-table-column>
     </vxe-table>
-
     <el-pagination
       @size-change="handleSizeChange"
       @current-change="handlePageChange"
@@ -601,6 +600,10 @@ export default {
 }
 </script>
 
-<style lang='less' >
+<style lang='less'  scoped>
 @import "../../css/readMeter.less";
+.card{
+  width: 100%;
+  min-width: 950px;
+}
 </style>

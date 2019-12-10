@@ -23,15 +23,15 @@
 .payLogEx .vxe-toolbar .el-button {
   font-size: 13px;
 }
-.payLogEx .vxe-toolbar .vxe-custom--wrapper {
+/* .payLogEx .vxe-toolbar .vxe-custom--wrapper {
   bottom: 0px;
-}
+} */
 .payLogEx .vxe-toolbar .vxe-custom--wrapper .vxe-custom--setting-btn {
   font-size: 15px;
 }
-.payLogEx .vxe-toolbar .vxe-custom--wrapper .vxe-custom--option-wrapper {
+/* .payLogEx .vxe-toolbar .vxe-custom--wrapper .vxe-custom--option-wrapper {
   bottom: 40px;
-}
+} */
 .payLogEx .vxe-table {
   height: 86%;
   margin: 10px 0 10px 0 ;
@@ -64,7 +64,7 @@
 .payLogEx .btn-export {
   margin-right: 40px;
 }
-@media screen and (min-width: 1800px) {
+/* @media screen and (min-width: 1800px) {
   .payLogEx .vxe-table {
     height: 89%;
     margin: 10px 0 10px 0 ;
@@ -72,4 +72,4 @@
   .payLogEx .vxe-table .vxe-table--body-wrapper {
     height: 92.5%;
   }
-}
+} */

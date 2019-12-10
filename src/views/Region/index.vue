@@ -7,6 +7,7 @@
         <el-button size="small"  @click="updateArea"  icon="el-icon-edit" :disabled="getDisabled">修改</el-button>
         <el-button @click="deleteArea" size="small"  icon="el-icon-delete" :disabled="getDisabled">删除</el-button>
       </div>
+      <div ref="treeBox">
       <el-tree
         :data="glAreaData"
         node-key="id"
@@ -19,6 +20,7 @@
         @node-click="onCurrentAreaChanged"
         :indent = '0'
       ></el-tree>
+      </div>
   </div>
 </template>
 
@@ -78,9 +80,14 @@ export default {
   created () {
   },
   mounted () {
+    // this.hh();
     this.loadArea()
   },
   methods: {
+     hh() {
+      // console.log(this.$refs.element.offsetHeight);
+      this.$refs.treeBox.style.height = this.screenHeight - 537 + "px";
+    },
     loadArea () {
       if (store.state.glAreaData.length > 0) {
         this.areaData = store.state.glAreaData
@@ -282,6 +289,6 @@ export default {
 }
 </script>
 
-<style lang='less'>
+<style lang='less' scoped>
   @import "../../css/region.less";
 </style>

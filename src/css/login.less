@@ -1,22 +1,24 @@
 // 登录界面样式
 
 @loginform--bg: #ffffff;
-@loginform--w: 18%;
-@loginform--h: 60%;
-@loginform--r: 130px;
+@loginform--w: 24%;
+@loginform--h: 55%;
+@loginform--r: 8%;
 @loginform--t: 20%;
 @loginform--br: 5px;
 // 登录表单标题对齐方式
 @loginform-title--ta: left;
 
-@el-form--pt: 20px;
+@el-form--pt: 10px;
 
 @loginform-btns-link--fs: 13px;
 @login-bottom--h: 40px;
 .login {
   position: relative;
   .login-content{
-    height: 82%;
+    min-height: 480px;
+    overflow-y: auto;
+    height: 85%;
     width: 100%;
     background: url('../../public/login_20180101.jpg') no-repeat center center;
     background-size:cover;
@@ -27,16 +29,17 @@
     }
   }
   .loginform {
+    min-height: 340px;
     position: absolute;
     top: @loginform--t;
     right: @loginform--r;
     width: @loginform--w;
     height: @loginform--h;
-    min-width: 420px;
+    min-width: 270px;
     z-index: 999;
     background-color: @loginform--bg;
     border-radius: @loginform--br;
-    padding: 20px 30px;
+    padding:15px 20px;
 
     &-title{
       margin: 0 auto;
@@ -59,17 +62,19 @@
           }
         }
       }
-      
+      .el-form-item{
+        margin-bottom: 15px;
+      }
       .el-form-item__label{
-        line-height: 50px;
+        line-height: 38px;
       }
       .el-select{
         width: 100%;
       }
       .el-input{
         input{
-          height: 50px;
-          line-height: 50px;
+          height: 38px;
+          line-height: 38px;
         }
       }
       .el-cascader{
@@ -78,7 +83,7 @@
       }
       .el-button {
         width: 100%;
-        padding: 16px 20px;
+        padding: 12px 20px;
       }
       .item-location{
         position:relative;
@@ -94,7 +99,7 @@
         }
       }
       .el-checkbox{
-        margin-bottom: 20px;
+        margin-bottom: 15px;
         .el-checkbox__inner{
           width: 20px;
           height: 20px;
@@ -132,4 +137,3 @@
     }
   }
 }
-

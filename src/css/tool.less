@@ -5,9 +5,9 @@
 @grouping--p: 15px 10px;;
 @grouping-header--bgc: #fff;
 @grouping-header-title--fs: 15px;
-@header-nav--fs: 16px;
-@header-logo--ml: 30px;
-@header-nav--mr: 150px;
+@header-nav--fs: 20px;
+@header-logo--ml: 130px;
+@header-nav--mr: 130px;
 @el-dialog-title--fs: 15px;
 @el-dialog-header--bgc: #F5F5F5;
 @el-dialog-body--p: 25px 25px 0 0;
@@ -55,10 +55,10 @@
 }
 
 .header{
-  height: 10%;
+  height: 120px;
   &-logo{
     display:inline-block;
-    width: 80px;
+    width: 75px;
     height: 100%;
     margin-left: @header-logo--ml;
     vertical-align: top;
@@ -84,12 +84,12 @@
       padding-right: 10px;
       border-right: 1px solid #ccc;
       display:inline-block;
-      font-size: 20px;
+      font-size: 22px;
       font-weight: 400;
     }
     span{
       color: #666;
-      font-size: 16px;
+      font-size: 17px;
     }
   }
 
@@ -101,7 +101,7 @@
 
     li{
       float: left;
-      padding: 0 10px;
+      padding: 0 15px;
 
       a{
         font-size: @header-nav--fs;
@@ -183,6 +183,7 @@
   border: 0;
   margin: 5px 20px 0 0;
   i{
+    float: left;
     font-size: 18px;
     vertical-align: sub;
   }
@@ -204,13 +205,21 @@
   }
 }
 //设置表格列动态调整公共样式--start
-.vxe-toolbar .vxe-custom--wrapper{
-  position: absolute!important;
-    bottom: 44px!important;
-    right: 20px;
+// .vxe-toolbar .vxe-custom--wrapper{
+//  float: unset;
+//  text-align: right;
+//  position: absolute!important;
+//  /* height: 50px; */
+//  /* line-height: 35px; */
+//  width: 34px!important;
+//  right: 7px!important;
+//  top: 10px!important;
+// }
+.vxe-table{
+  height: 80%!important;
 }
 .el-button.group,.el-button.btn-group{
-  margin-right: 60px!important;
+  margin-right: 18px!important;
 }
 .el-button.btn-export,.el-button.uploadFile{
   margin-right: 18px!important;
@@ -218,5 +227,11 @@
 .card>div{
 position: relative;
 }
-
+.vxe-table.t--border .vxe-body--column, .vxe-table.t--border .vxe-footer--column, .vxe-table.t--border .vxe-header--column{
+  min-width: 120px;
+}
+// .vxe-toolbar .el-input{
+//   margin-bottom: 15px;
+// }
 //--end
+

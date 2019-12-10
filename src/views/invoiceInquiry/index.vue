@@ -338,17 +338,17 @@ export default {
 };
 </script>
 
-<style lang='less'  type='text/css' scope>
+<style lang='less'  type='text/css' scoped>
 @import "../../css/rmReadMeterEx.less";
 .invoiceInquiry {
   position: relative;
   overflow-y: auto;
-  .vxe-toolbar .vxe-custom--wrapper {
-    position: absolute !important;
-    bottom: -3px !important;
-    right: 20px;
-    //  bottom: -83px !important;
-  }
+  // .vxe-toolbar .vxe-custom--wrapper {
+  //   position: absolute !important;
+  //   bottom: -3px !important;
+  //   right: 20px;
+  //   //  bottom: -83px !important;
+  // }
   .vxe-table:after {
     bottom: 1px;
   }

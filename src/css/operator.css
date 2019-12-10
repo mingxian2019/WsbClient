@@ -15,13 +15,13 @@
 .oprtsyot .vxe-toolbar .vxe-custom--setting-btn {
   font-size: 15px;
 }
-.oprtsyot .vxe-toolbar .vxe-custom--wrapper {
+/* .oprtsyot .vxe-toolbar .vxe-custom--wrapper {
   bottom: 0px;
   left: 0;
-}
-.oprtsyot .vxe-toolbar .vxe-custom--wrapper .vxe-custom--option-wrapper {
+} */
+/* .oprtsyot .vxe-toolbar .vxe-custom--wrapper .vxe-custom--option-wrapper {
   bottom: 40px;
-}
+} */
 .oprtsyot .vxe-table {
   height: 86%;
   margin: 10px 0 10px 0 ;
@@ -44,7 +44,7 @@
   box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
   background-color: #dfdddd;
 }
-@media screen and (min-width: 1800px) {
+/* @media screen and (min-width: 1800px) {
   .oprtsyot .vxe-table {
     height: 89%;
     margin: 10px 0 10px 0 ;
@@ -52,4 +52,4 @@
   .oprtsyot .vxe-table .vxe-table--body-wrapper {
     height: 92.5%;
   }
-}
+} */

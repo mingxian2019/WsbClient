@@ -16,15 +16,15 @@
 .meter .vxe-toolbar .el-button {
   font-size: 13px;
 }
-.meter .vxe-toolbar .vxe-custom--wrapper {
+/* .meter .vxe-toolbar .vxe-custom--wrapper {
   bottom: 0px;
-}
+} */
 .meter .vxe-toolbar .vxe-custom--wrapper .vxe-custom--setting-btn {
   font-size: 15px;
 }
-.meter .vxe-toolbar .vxe-custom--wrapper .vxe-custom--option-wrapper {
+/* .meter .vxe-toolbar .vxe-custom--wrapper .vxe-custom--option-wrapper {
   bottom: 40px;
-}
+} */
 .meter .vxe-table {
   height: 86%;
   width: 100%;
@@ -68,7 +68,7 @@
 .meter .uploadFile {
   margin-right: 40px;
 }
-@media screen and (min-width: 1800px) {
+/* @media screen and (min-width: 1800px) {
   .meter .vxe-table {
     height: 89%;
     margin: 10px 0 10px 0 ;
@@ -76,4 +76,4 @@
   .meter .vxe-table .vxe-table--body-wrapper {
     height: 92.5%;
   }
-}
+} */

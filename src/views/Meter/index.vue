@@ -38,72 +38,72 @@
           <span v-html="row.Addr"></span>
         </template>
       </vxe-table-column>
-      <vxe-table-column width="130" field="Protocol" title="通信协议" >
+      <vxe-table-column field="Protocol" title="通信协议" >
         <template v-slot="{ row }">
           <span v-html="row.Protocol"></span>
         </template>
       </vxe-table-column>
-      <vxe-table-column width="130" field="MeterType" title="类型" :filters="meterTypeFilters" :filter-method="filterHandler" >
+      <vxe-table-column field="MeterType" title="类型" :filters="meterTypeFilters" :filter-method="filterHandler" >
         <template v-slot="{ row }">
           <span v-html="row.MeterType"></span>
         </template>
       </vxe-table-column>
-      <vxe-table-column width="180" field="CtrlPw" title="密码密级" >
+      <vxe-table-column field="CtrlPw" title="密码密级" >
         <template v-slot="{ row }">
           <span v-html="row.CtrlPw"></span>
         </template>
       </vxe-table-column>
-      <vxe-table-column width="100" field="PtCt" title="倍率" >
+      <vxe-table-column field="PtCt" title="倍率" >
         <template v-slot="{ row }">
           <span v-html="row.PtCt"></span>
         </template>
       </vxe-table-column>
-      <vxe-table-column width="180" field="JzqAddr" title="终端地址" sortable >
+      <vxe-table-column field="JzqAddr" title="终端地址" sortable >
         <template v-slot="{ row }">
           <span v-html="row.JzqAddr"></span>
         </template>
       </vxe-table-column>
-      <vxe-table-column width="100" field="SeqId" title="序号" >
+      <vxe-table-column field="SeqId" title="序号" >
         <template v-slot="{ row }">
           <span v-html="row.SeqId"></span>
         </template>
       </vxe-table-column>
-      <vxe-table-column width="150" field="Port" title="端口"  >
+      <vxe-table-column field="Port" title="端口"  >
         <template v-slot="{ row }">
           <span v-html="row.Port"></span>
         </template>
       </vxe-table-column>
-      <vxe-table-column width="180" field="Mobile" title="手机号" sortable >
+      <vxe-table-column field="Mobile" title="手机号" sortable >
         <template v-slot="{ row }">
           <span v-html="row.Mobile"></span>
         </template>
       </vxe-table-column>
-      <vxe-table-column width="180" field="UserName" title="表名" sortable >
+      <vxe-table-column field="UserName" title="表名" sortable >
         <template v-slot="{ row }">
           <span v-html="row.UserName"></span>
         </template>
       </vxe-table-column>
-      <vxe-table-column width="180" field="UserNo" title="表号" sortable >
+      <vxe-table-column field="UserNo" title="表号" sortable >
         <template v-slot="{ row }">
           <span v-html="row.UserNo"></span>
         </template>
       </vxe-table-column>
-      <vxe-table-column width="150" field="UserTypeText" title="计费标准" >
+      <vxe-table-column field="UserTypeText" title="计费标准" >
         <template v-slot="{ row }">
           <span v-html="row.UserTypeText"></span>
         </template>
       </vxe-table-column>
-      <vxe-table-column width="300" field="Site" title="安装地址" sortable >
+      <vxe-table-column field="Site" title="安装地址" sortable >
         <template v-slot="{ row }">
           <span v-html="row.Site"></span>
         </template>
       </vxe-table-column>
-      <vxe-table-column field="Max" width="130" title="日用量上限" show-overflow>
+      <vxe-table-column field="Max" title="日用量上限" show-overflow>
         <template v-slot="{ row }">
           <span v-html="row.MaxVal"></span>
         </template>
       </vxe-table-column>
-      <vxe-table-column field="Min" width="130" title="日用量下限" show-overflow>
+      <vxe-table-column field="Min" title="日用量下限" show-overflow>
         <template v-slot="{ row }">
           <span v-html="row.MinVal"></span>
         </template>

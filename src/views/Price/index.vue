@@ -22,27 +22,27 @@
       :data.sync="feePrice"
       :optimization ="{scrollY: {gt: 500, oSize: 10, rSize: 30}}"
       :customs.sync="customColumns">
-      <vxe-table-column field="Alias" title="计费标准" tree-node  show-overflow>
+      <vxe-table-column field="Alias" title="计费标准" tree-node>
         <template v-slot="{ row }">
           <span v-html="row.Alias"></span>
         </template>
       </vxe-table-column>
-      <vxe-table-column field="Fp1" title="费率1-尖价" show-overflow>
+      <vxe-table-column field="Fp1" title="费率1-尖价">
         <template v-slot="{ row }">
           <span v-html="row.Fp1"></span>
         </template>
       </vxe-table-column>
-      <vxe-table-column field="Fp2" title="费率2-峰价" show-overflow>
+      <vxe-table-column field="Fp2" title="费率2-峰价">
         <template v-slot="{ row }">
           <span v-html="row.Fp2"></span>
         </template>
       </vxe-table-column>
-      <vxe-table-column field="Fp3" title="费率3-平价" show-overflow>
+      <vxe-table-column field="Fp3" title="费率3-平价">
         <template v-slot="{ row }">
           <span v-html="row.Fp3"></span>
         </template>
       </vxe-table-column>
-      <vxe-table-column field="Fp4" title="费率4-谷价" show-overflow>
+      <vxe-table-column field="Fp4" title="费率4-谷价">
         <template v-slot="{ row }">
           <span v-html="row.Fp4"></span>
         </template>
@@ -106,8 +106,7 @@ export default {
           let feePriceArray = []
           for (let i = 0; i < aMsg.Vec.length; i++) {
             let price = aMsg.Vec[i].Price
-            let alias = (aMsg.Vec[i].Alias == '') ? Config.getUserTypeValue(aMsg.Vec[i].Type) 
-                                                    : aMsg.Vec[i].Alias
+            let alias = (aMsg.Vec[i].Alias == '') ? Config.getUserTypeValue(aMsg.Vec[i].Type): aMsg.Vec[i].Alias
 
             if (aMsg.Vec[i].Type <= 5) {
               feePriceArray.push({

@@ -10,11 +10,9 @@
         <span>中国第一免费抄表云平台</span>
       </div>
       <ul class='header-nav'>
-        <li><el-link type="info" :underline="false">企业抄表</el-link></li>
-        <li><el-link type="info" :underline="false">家庭抄表</el-link></li>
-        <li><el-link type="info" :underline="false">微信公众号</el-link></li>
         <li><el-link type="info" :underline="false">会员中心</el-link></li>
         <li><el-link type="info" :underline="false">帮助中心</el-link></li>
+        <li><el-link type="info" :underline="false">物业中心</el-link></li>
       </ul>
     </div>
 

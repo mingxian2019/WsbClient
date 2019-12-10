@@ -105,7 +105,7 @@ export default {
 };
 </script>
 
-<style lang='less' scope>
+<style lang='less' scoped>
 .payment {
   padding: 20px;
   font-size: 17px;

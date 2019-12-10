@@ -26,15 +26,15 @@
 .payLogFee .vxe-toolbar .el-button {
   font-size: 13px;
 }
-.payLogFee .vxe-toolbar .vxe-custom--wrapper {
+/* .payLogFee .vxe-toolbar .vxe-custom--wrapper {
   bottom: 0px;
-}
-.payLogFee .vxe-toolbar .vxe-custom--wrapper .vxe-custom--setting-btn {
+} */
+/* .payLogFee .vxe-toolbar .vxe-custom--wrapper .vxe-custom--setting-btn {
   font-size: 15px;
 }
 .payLogFee .vxe-toolbar .vxe-custom--wrapper .vxe-custom--option-wrapper {
   bottom: 40px;
-}
+} */
 .payLogFee .vxe-table {
   height: 86%;
   margin: 10px 0 10px 0 ;
@@ -67,7 +67,7 @@
 .payLogFee .btn-export {
   margin-right: 40px;
 }
-@media screen and (min-width: 1800px) {
+/* @media screen and (min-width: 1800px) {
   .payLogFee .vxe-table {
     height: 89%;
     margin: 10px 0 10px 0 ;
@@ -75,4 +75,4 @@
   .payLogFee .vxe-table .vxe-table--body-wrapper {
     height: 92.5%;
   }
-}
+} */
