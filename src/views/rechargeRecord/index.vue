@@ -1,102 +1,106 @@
 <template>
   <!-- 抄表异常管理 -->
   <div class="rmReadMeterEx hw100 rechargeRecord">
-    <vxe-toolbar :data="readExData" setting>
-      <template v-slot:buttons>
-        <span>起始时间</span>
-        <el-date-picker v-model="dateFrom" type="date" size="small" placeholder="选择日期"></el-date-picker>
-        <span>结束时间</span>
-        <el-date-picker v-model="dateEnd" type="date" size="small" placeholder="选择日期"></el-date-picker>
-        <span>审核状态</span>
-        <el-select
-          v-model="readExValue"
-          placeholder="请选择"
-          @change="exTypeChange"
-          size="small"
-          class="auditStatus"
-        >
-          <el-option
-            v-for="item in meterReadEx"
-            :key="item.id"
-            :label="item.value"
-            :value="item.id"
-          ></el-option>
-        </el-select>
-        <el-input
-          placeholder="请输入内容"
-          prefix-icon="el-icon-search"
-          v-model="searchText"
-          size="small"
-        ></el-input>
-        <el-button @click="initTable" size="small" icon="el-icon-search">查询</el-button>
-      </template>
-    </vxe-toolbar>
-
-    <vxe-table
-      ref="xTable"
-      border
-      highlight-hover-row
-      highlight-current-row
-      resizable
-      :tree-config="{key: 'submitTime', children: 'children', trigger: 'cell'}"
-      :radio-config="{labelField: 'rechargeType'}"
-      :data.sync="list"
-      :customs.sync="customColumns"
-    >
-      <vxe-table-column field="submitTime" title="提交时间" tree-node>
-        <template v-slot="{ row }">
-          <span v-html="row.submitTime"></span>
+    <div ref="toolbar">
+      <vxe-toolbar :data="readExData" setting>
+        <template v-slot:buttons>
+          <span>起始时间</span>
+          <el-date-picker v-model="dateFrom" type="date" size="small" placeholder="选择日期"></el-date-picker>
+          <span>结束时间</span>
+          <el-date-picker v-model="dateEnd" type="date" size="small" placeholder="选择日期"></el-date-picker>
+          <span>审核状态</span>
+          <el-select
+            v-model="readExValue"
+            placeholder="请选择"
+            @change="exTypeChange"
+            size="small"
+            class="auditStatus"
+          >
+            <el-option
+              v-for="item in meterReadEx"
+              :key="item.id"
+              :label="item.value"
+              :value="item.id"
+            ></el-option>
+          </el-select>
+          <el-input
+            placeholder="请输入内容"
+            prefix-icon="el-icon-search"
+            v-model="searchText"
+            size="small"
+          ></el-input>
+          <el-button @click="initTable" size="small" icon="el-icon-search">查询</el-button>
         </template>
-      </vxe-table-column>
-      <vxe-table-column field="rechargeAmount" title="充值金额">
-        <template v-slot="{ row }">
-          <span v-html="row.rechargeAmount"></span>
-        </template>
-      </vxe-table-column>
-      <vxe-table-column field="serviceCharge" title="手续费">
-        <template v-slot="{ row }">
-          <span v-html="row.serviceCharge"></span>
-        </template>
-      </vxe-table-column>
-      <vxe-table-column field="rechargeType" title="充值方式">
-        <template v-slot="{ row }">
-          <span v-html="row.rechargeType"></span>
-        </template>
-      </vxe-table-column>
-      <vxe-table-column field="auditStatus" title="审核状态">
-        <template v-slot="{ row }">
-          <span v-html="row.auditStatus"></span>
-        </template>
-      </vxe-table-column>
-      <vxe-table-column field="bankName" title="转账银行">
-        <template v-slot="{ row }">
-          <span v-html="row.bankName"></span>
-        </template>
-      </vxe-table-column>
-      <vxe-table-column field="bankAccount" title="转账人卡号">
-        <template v-slot="{ row }">
-          <span v-html="row.bankAccount"></span>
-        </template>
-      </vxe-table-column>
-    </vxe-table>
-
-    <el-pagination
-      @size-change="handleSizeChange"
-      @current-change="handlePageChange"
-      :pager-count="5"
-      :current-page.sync="currentPage"
-      :page-size="pageSize"
-      layout="total, prev, pager, next, jumper"
-      :total="origin.length"
-    ></el-pagination>
-    <a id="downlink"></a>
-    <el-button
-      size="small"
-      @click="downloadFile(origin)"
-      class="btn-export btn-fun uploadFile"
-      icon="el-icon-upload2"
-      style="margin-right:58px!important"
-    >导出</el-button>
+      </vxe-toolbar>
+    </div>
+    <div class="table-box" ref="tableBox">
+      <vxe-table
+        ref="xTable"
+        border
+        height="auto"
+        highlight-hover-row
+        highlight-current-row
+        resizable
+        :tree-config="{key: 'submitTime', children: 'children', trigger: 'cell'}"
+        :radio-config="{labelField: 'rechargeType'}"
+        :data.sync="list"
+        :customs.sync="customColumns"
+      >
+        <vxe-table-column field="submitTime" title="提交时间" tree-node>
+          <template v-slot="{ row }">
+            <span v-html="row.submitTime"></span>
+          </template>
+        </vxe-table-column>
+        <vxe-table-column field="rechargeAmount" title="充值金额">
+          <template v-slot="{ row }">
+            <span v-html="row.rechargeAmount"></span>
+          </template>
+        </vxe-table-column>
+        <vxe-table-column field="serviceCharge" title="手续费">
+          <template v-slot="{ row }">
+            <span v-html="row.serviceCharge"></span>
+          </template>
+        </vxe-table-column>
+        <vxe-table-column field="rechargeType" title="充值方式">
+          <template v-slot="{ row }">
+            <span v-html="row.rechargeType"></span>
+          </template>
+        </vxe-table-column>
+        <vxe-table-column field="auditStatus" title="审核状态">
+          <template v-slot="{ row }">
+            <span v-html="row.auditStatus"></span>
+          </template>
+        </vxe-table-column>
+        <vxe-table-column field="bankName" title="转账银行">
+          <template v-slot="{ row }">
+            <span v-html="row.bankName"></span>
+          </template>
+        </vxe-table-column>
+        <vxe-table-column field="bankAccount" title="转账人卡号">
+          <template v-slot="{ row }">
+            <span v-html="row.bankAccount"></span>
+          </template>
+        </vxe-table-column>
+      </vxe-table>
+    </div>
+    <div class="botoom-box">
+      <el-pagination
+        @size-change="handleSizeChange"
+        @current-change="handlePageChange"
+        :pager-count="5"
+        :current-page.sync="currentPage"
+        :page-size="pageSize"
+        layout="total, prev, pager, next, jumper"
+        :total="origin.length"
+      ></el-pagination>
+      <a id="downlink"></a>
+      <el-button
+        size="small"
+        @click="downloadFile(origin)"
+        class="btn-export btn-fun uploadFile"
+        icon="el-icon-upload2"
+      >导出</el-button>
+    </div>
   </div>
 </template>
 
@@ -182,13 +186,14 @@ export default {
     deep: true
   },
   mounted() {
+    this.$refs.tableBox.style.height=document.documentElement.clientHeight  - this.$refs.toolbar.offsetHeight -200 +"px";
     this.outFile = document.getElementById("downlink");
     this.dateFrom = new Date(
       new Date(new Date().getTime() - 86400000).toDateString()
     );
     this.dateEnd = new Date(new Date(new Date().getTime()).toDateString());
     this.initTable();
-    console.log(this.meterReadEx)
+    console.log(this.meterReadEx);
   },
   methods: {
     initTable() {
@@ -304,10 +309,10 @@ export default {
     bottom: 1px;
   }
   .auditStatus {
-      width: 200px!important;
-      .el-input{
-        width: 200px!important;
-      }
+    width: 200px !important;
+    .el-input {
+      width: 200px !important;
+    }
   }
 }
 </style>

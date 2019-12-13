@@ -1,5 +1,6 @@
 <template>
   <div class="concentrator">
+     <div ref="toolbar">
     <vxe-toolbar :data="jzqData" setting>
       <template v-slot:buttons>
         <vxe-input v-model="searchText" type="search" placeholder="输入关键字搜索"></vxe-input>
@@ -10,10 +11,12 @@
         <el-button  class="top-btn" @click="goSetJzq" size="small"  icon="el-icon-setting">参数设置</el-button>
       </template>
     </vxe-toolbar>
-
+    </div>
+    <div class="table-box" ref="tableBox">
     <vxe-table
       ref="xTable"
       border
+      height="auto"
       highlight-hover-row
       highlight-current-row
       resizable
@@ -48,7 +51,8 @@
         </template>
       </vxe-table-column>
     </vxe-table>
-
+    </div>
+     <div class="botoom-box">
     <el-pagination
       background
       @size-change="handleSizeChange"
@@ -77,6 +81,7 @@
           <el-button class='btn-fun btn-group' slot="reference" size="small"  icon="el-icon-document-copy">分组</el-button>
           <!-- <span  class='btn-fun><i class="el-icon-document-copy"></i>分组</span> -->
         </el-popover>
+        </div>
     <add ref="showAdd" :jzqData="jzqData"></add>
     <edit ref="showEdit" :jzqData="jzqData" :currentJzq="currentJzq"></edit>
   </div>
@@ -155,6 +160,7 @@ export default {
     deep: true
   },
   mounted () {
+    this.$refs.tableBox.style.height=document.documentElement.clientHeight - this.$refs.toolbar.offsetHeight -200 +"px";
     this.currentArea = store.state.currentAreaTerNode
     this.loadJzq()
   },

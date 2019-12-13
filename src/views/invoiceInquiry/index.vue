@@ -72,10 +72,11 @@
         <el-button @click="initTable" size="small" icon="el-icon-search">查询</el-button>
       </template>
     </vxe-toolbar>
-
+    <div style="height:400px">
     <vxe-table
       ref="xTable"
       border
+      height="auto"
       highlight-hover-row
       highlight-current-row
       resizable
@@ -120,7 +121,7 @@
         </template>
       </vxe-table-column>
     </vxe-table>
-
+    </div>
     <el-pagination
       @size-change="handleSizeChange"
       @current-change="handlePageChange"
@@ -353,9 +354,9 @@ export default {
     bottom: 1px;
   }
   .auditStatus {
-    width: 178px !important;
+    width: 150px !important;
     .el-input {
-      width: 178px !important;
+      width: 150px !important;
     }
   }
   .el-collapse {
@@ -366,6 +367,9 @@ export default {
   }
   .el-collapse-item__header{
     color: #f00 !important;
+  }
+  .el-collapse-item__content{
+    padding-bottom: 0;
   }
   .paragraph{
     margin-bottom: 40px;

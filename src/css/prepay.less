@@ -4,14 +4,15 @@
     box-sizing: border-box;
     .vxe-toolbar{
       padding: 0;
+      position: relative;
       .vxe-button--wrapper{
         // position:relative;
         .el-input{
-          width: 160px;
+          width: 130px;
           margin-right: 10px;
         }
         .el-select {
-          width: 160px;
+          width: 100px;
           margin-right: 10px;
           .el-input{
             width: 100%;
@@ -32,26 +33,24 @@
           font-size: 13px;
         }
       }
-      // .vxe-custom--wrapper{
-      //   bottom: -550px;
-      //   .vxe-custom--setting-btn{
-      //     font-size: 15px;
-      //   }
-      //   .vxe-custom--option-wrapper{
-      //     bottom: 40px;
-      //   }
-      // }
+      .vxe-custom--wrapper {
+        float: none!important;
+        text-align: right;
+        position: absolute;
+        right: 0px;
+        top: 0px;
+      }
+    }
+    .table-box{
+      margin-bottom: 15px!important;
+      background: #fff;
+    }
+    .botoom-box{
+      height: 32px;
     }
     .vxe-table{
       width: 100%;
-      height:86%;
       margin: 10px 0 10px 0 ;
-      // .vxe-table--header-wrapper{
-      //   height:10%
-      // }
-      .vxe-table--body-wrapper{
-        height: 90%;
-      }
       .vxe-table--body-wrapper::-webkit-scrollbar {
         width: 8px;
         height: 8px;
@@ -81,30 +80,5 @@
     }
     .btn-export{
       margin-right: 40px;
-    }
-  }
-  @media screen and (min-width: 1550px) {
-    // .prepay{
-    //   .vxe-toolbar{
-    //     .vxe-custom--wrapper{
-    //         bottom: -575px;
-    //       }
-    //     }
-    // }
-  }
-  @media screen and (min-width: 1800px) {
-    .prepay{
-      // .vxe-toolbar{
-      //   .vxe-custom--wrapper{
-      //       bottom: -735px;
-      //     }
-      // }
-      // .vxe-table{
-      //   height: 89%;
-      //   margin: 10px 0 10px 0 ;
-      //   .vxe-table--body-wrapper{
-      //     height: 92.5%;
-      //   }
-      // }
     }
   }

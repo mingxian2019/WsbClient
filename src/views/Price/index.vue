@@ -7,10 +7,11 @@
         <el-button @click="delFeePrice" icon="el-icon-delete" size="small">删除</el-button>
       </template>
     </vxe-toolbar>
-
+    <div class="table-box" ref="tableBox">
     <vxe-table
       ref="xTable"
       border
+      height="auto"
       highlight-hover-row
       highlight-current-row
       :loading="loading"
@@ -48,6 +49,7 @@
         </template>
       </vxe-table-column>
     </vxe-table>
+    </div>
   <Edit ref="showEdit" :currentFeePrice="currentFeePrice"/>
   <Add ref="showAdd" :feePriceAll="feePrice"/>
   </div>
@@ -80,6 +82,7 @@ export default {
   computed: {
   },
   mounted () {
+    this.$refs.tableBox.style.height =document.documentElement.clientHeight - 205 + "px";
     this.initTable()
   },
   methods: {

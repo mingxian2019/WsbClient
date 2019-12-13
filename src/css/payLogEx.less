@@ -7,37 +7,40 @@
 
   .vxe-toolbar{
     padding: 0;
+    position: relative;
     span{
       margin-right: 10px;
       font-size: 13px;
     }
     .el-date-editor{
       margin-right: 10px;
-      width: 180px;
+      width: 130px;
+      margin-left: 10px;
     }
     .el-select{
       margin-right: 10px;
-      width: 160px;
+      width: 100px;
     }
     .el-button{
       font-size: 13px;
     }
-    // .vxe-custom--wrapper{
-    //   bottom: -550px;
-    //   .vxe-custom--setting-btn{
-    //     font-size: 15px;
-    //   }
-    //   .vxe-custom--option-wrapper{
-    //     bottom: 40px;
-    //   }
-    // }
+    .vxe-custom--wrapper {
+      float: none!important;
+      text-align: right;
+      position: absolute;
+      right: 0px;
+      top: 0px;
+    }
+  }
+  .table-box{
+    margin-bottom: 15px!important;
+    background: #fff;
+  }
+  .botoom-box{
+    height: 32px;
   }
   .vxe-table{
-    height: 83%;
     margin: 10px 0 10px 0 ;
-    .vxe-table--body-wrapper{
-      height: 90%;
-    }
     .vxe-table--body-wrapper::-webkit-scrollbar {
       width: 8px;
       height: 8px;
@@ -60,36 +63,12 @@
   .el-pagination{
     float:left;
     margin-right: 20px;
+    margin-top: -3px;
   }
   .group{
     margin-left: 10px;
   }
   .btn-export{
     margin-right: 40px;
-  }
-}
-@media screen and (min-width: 1550px) {
-  // .payLogEx{
-  //   .vxe-toolbar{
-  //     .vxe-custom--wrapper{
-  //         bottom: -575px;
-  //       }
-  //     }
-  // }
-}
-@media screen and (min-width: 1800px) {
-  .payLogEx{
-    // .vxe-toolbar{
-    //   .vxe-custom--wrapper{
-    //       bottom: -735px;
-    //     }
-    // }
-    // .vxe-table{
-    //   height: 89%;
-    //   margin: 10px 0 10px 0 ;
-    //   .vxe-table--body-wrapper{
-    //     height: 92.5%;
-    //   }
-    // }
   }
 }

@@ -1,7 +1,7 @@
 <template>
 <!-- 收费查询 -->
   <div class="payLogUsr  hw100">
-
+    <div ref="toolbar">
     <vxe-toolbar :data="meters" setting>
       <template v-slot:buttons>
         <span>起始时间</span>
@@ -38,13 +38,14 @@
             :value="item.id">
           </el-option>
         </el-select>
-
       </template>
     </vxe-toolbar>
-
+    </div>
+    <div class="table-box" ref="tableBox">
     <vxe-table
       ref="xTable"
       border
+      height="auto"
       highlight-hover-row
       highlight-current-row
       :loading="loading"
@@ -112,7 +113,8 @@
         </template>
       </vxe-table-column>
     </vxe-table>
-
+     </div>
+    <div class="botoom-box">
     <el-pagination
       background
       @size-change="handleSizeChange"
@@ -143,6 +145,7 @@
     </el-popover>
     <el-button class="btn-fun uploadFile"   @click="downloadFile(origin)" size="small"  icon="el-icon-upload2">导出</el-button>
   </div>
+   </div>
 </template>
 
 <script>
@@ -198,6 +201,7 @@ export default {
     deep: true
   },
   mounted () {
+    this.$refs.tableBox.style.height =document.documentElement.clientHeight - this.$refs.toolbar.offsetHeight -200 +"px";
     let date = new Date()
     this.dateFrom = new Date(date.getFullYear(), date.getMonth(), 1)
     this.dateEnd = new Date(date.getFullYear(), date.getMonth(), date.getDate())

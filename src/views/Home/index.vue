@@ -445,9 +445,11 @@ export default {
       myChart3.resize();
       })()
     }
+    
+  setTimeout(this.initPieChart(),500);
   },
   created () {
-    this.initPieChart()
+    
     // this.allmeterOption.series[0].label.normal.formatter = `${this.getTotal}`
   },
   methods: {

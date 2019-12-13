@@ -14,8 +14,8 @@
           <span class='el-main-top-currentArea'> {{ title }} <span style="color:#409EFF;font-weight:700">{{ currentAreaMonitor }}</span></span>
         </div>
         <keep-alive>
-          <div class="card" ref="card">
-            <router-view></router-view>
+          <div class="card" ref="card" id="card">
+            <router-view :cardHeight="cardHeight"></router-view>
           </div>
         </keep-alive>
       </el-main>
@@ -34,6 +34,7 @@ export default {
     return {
       title:'',
       currentArea: '',
+      cardHeight:0,
     }
   },
   computed: {
@@ -67,6 +68,8 @@ export default {
     let jsContainer = document.getElementById('js_container')
     let tt = document.body.clientHeight || document.documentElement.clientHeight;
     jsContainer.style.height= tt-60+ 'px'; //动态设置HTML元素高度
+    this.$refs.card.style.height = tt-120+ 'px';
+    this.cardHeight=this.$refs.card.style.height
     jsResize.onmousedown = function (e) {
       let startX = e.clientX
       jsResize.jsSidebar = jsResize.offsetLeft
@@ -93,7 +96,9 @@ export default {
       let jsContainer = document.getElementById('js_container')
       let tt = document.body.clientHeight || document.documentElement.clientHeight;
       jsContainer.style.height= tt-60+ 'px'; //动态设置HTML元素高度
+      this.$refs.card.style.height = tt-120+ 'px';
     };
+    
   },
   components: {
     APPHeader,

@@ -1,5 +1,6 @@
 <template>
   <div class="readMeter hw100">
+    <div ref="toolbar">
     <vxe-toolbar :data="meterValData" setting>
       <template v-slot:buttons>
         <span>数据类型</span>
@@ -16,7 +17,7 @@
         <!-- </template> -->
         <span>数据时间</span>
         <el-date-picker v-model="dateTime" align="right" type="date" placeholder="选择日期" size='small'></el-date-picker>
-        <el-input placeholder="请输入内容" prefix-icon="el-icon-search" v-model="searchText" size='small'></el-input>
+        <el-input placeholder="请输入内容" prefix-icon="el-icon-search" v-model="searchText" size='small' style="margin-left:0"></el-input>
         <!-- <vxe-input placeholder="请输入内容" type="search" v-model="searchText" ></vxe-input> -->
         <el-button @click="initTable" size="small"  icon="el-icon-search">查询</el-button>
         <!-- <vxe-button @click="readDataFromJzq()">刷新</vxe-button> -->
@@ -27,9 +28,12 @@
         
       </template>
     </vxe-toolbar>
+    </div>
+    <div class="table-box" ref="tableBox">
     <vxe-table
       ref="xTableEL"
       border
+      height="auto"
       highlight-hover-row
       highlight-current-row
       resizable
@@ -41,57 +45,59 @@
       @select-change="selectChangeEvent"
       :customs.sync="customColumns">
       <vxe-table-column  type="selection" width="50" fixed="left"></vxe-table-column>
-      <vxe-table-column  field="Addr" width="180" title="表地址" sortable tree-node>
+      <vxe-table-column  field="Addr"  min-width="120" title="表地址" sortable tree-node  show-overflow>
         <template v-slot="{ row }">
           <span v-html="row.Addr"></span>
         </template>
       </vxe-table-column>
-      <vxe-table-column  field="UserName" title="用户表名" sortable>
+      <vxe-table-column  field="UserName" min-width="120" title="用户表名" sortable  show-overflow>
         <template v-slot="{ row }">
           <span v-html="row.UserName"></span>
         </template>
       </vxe-table-column>
-      <vxe-table-column  field="UserNo" title="用户表号" sortable >
+      <vxe-table-column  field="UserNo" min-width="120" title="用户表号" sortable  show-overflow>
         <template v-slot="{ row }">
           <span v-html="row.UserNo"></span>
         </template>
       </vxe-table-column>
-      <vxe-table-column  field="Mobile" title="手机号" sortable>
+      <vxe-table-column  field="Mobile" min-width="120" title="手机号" sortable>
         <template v-slot="{ row }">
           <span v-html="row.Mobile"></span>
         </template>
       </vxe-table-column>
-      <vxe-table-column field="UserType" title="用户类型">
+      <vxe-table-column field="UserType" min-width="120" title="用户类型">
         <template v-slot="{ row }">
           <span v-html="row.UserType"></span>
         </template>
       </vxe-table-column>
-      <vxe-table-column  field="ValTime" title="示值时间" sortable>
+      <vxe-table-column  field="ValTime" min-width="120" title="示值时间" sortable>
         <template v-slot="{ row }">
           <span v-html="row.ValTime"></span>
         </template>
       </vxe-table-column>
-      <vxe-table-column field="Val0" title="总示值">
+      <vxe-table-column field="Val0" min-width="120" title="总示值">
         <template v-slot="{ row }">
           <span v-html="row.Val0"></span>
         </template>
       </vxe-table-column>
-      <vxe-table-column field="Val5" title="日用量">
+      <vxe-table-column field="Val5" min-width="120" title="日用量">
         <template v-slot="{ row }">
           <span v-html="row.Val5"></span>
         </template>
       </vxe-table-column>
-      <vxe-table-column field="ReadTime" title="抄表时间" sortable>
+      <vxe-table-column field="ReadTime" min-width="120" title="抄表时间" sortable>
         <template v-slot="{ row }">
           <span v-html="row.ReadTime"></span>
         </template>
       </vxe-table-column>
-      <vxe-table-column field="Site" title="安装地址" sortable>
+      <vxe-table-column field="Site" min-width="120" title="安装地址" sortable>
         <template v-slot="{ row }">
           <span v-html="row.Site"></span>
         </template>
       </vxe-table-column>
     </vxe-table>
+    </div>
+     <div class="botoom-box">
     <el-pagination
       @size-change="handleSizeChange"
       @current-change="handlePageChange"
@@ -120,6 +126,7 @@
         <el-button slot="reference" size="small"  class='group btn-fun' icon="el-icon-document-copy">分组</el-button>
         </el-popover>
         <el-button size="small"  @click="downloadFile(origin)" class="btn-export btn-fun" icon="el-icon-upload2">导出</el-button>
+        </div>
     <Graph ref="showGraph" :currentMeter = "currentMeter"/>
   </div>
 </template>
@@ -209,6 +216,7 @@ export default {
     deep: true
   },
   mounted () {
+    this.$refs.tableBox.style.height=document.documentElement.clientHeight  - this.$refs.toolbar.offsetHeight -200 +"px";
     this.dateTime = new Date(new Date(new Date().getTime() - 86400000).toDateString())
     this.initTable()
     this.outFile = document.getElementById('downlink')

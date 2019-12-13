@@ -2,9 +2,6 @@
   <div class="editPwd">
     <div class="content">
       <div class="content-top">
-        <p>
-          <span>请注意：</span>修改完密码之后需要重新登录
-        </p>
       </div>
       <el-form label-position="left" label-width="80px" :model="editPwdData" :rules="rules" ref="ruleForm" status-icon>
         <el-form-item label="当前密码" prop="currentPwd">
@@ -95,11 +92,11 @@ export default {
             if (serverData.flag === 1) {
               this.$message({ message: '修改成功！', type: 'success' })
               // this.$router.replace('/login')
-              websocketclose()
+              // websocketclose()
               // this.$router.push({path: '/login', query: {from: 'editPwd'}})
               // 跳转到登录页
-              this.$router.replace('/login')
-              window.location.reload()
+              // this.$router.replace('/login')
+              // window.location.reload()
             } else {
               this.$message.error('修改失败: 请稍后重试')
             }

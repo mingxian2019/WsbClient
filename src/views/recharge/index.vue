@@ -4,13 +4,13 @@
       <span class="title">预付余额:</span>
       <span class="charge">&yen;2.00</span>
       <router-link to="/CaInfo/rechargeRecord">
-        <el-button type="primary" class="rechargeRecord content-title-btn">充值记录</el-button>
+        <el-button  size="mini" type="primary" class="rechargeRecord content-title-btn">充值记录</el-button>
       </router-link>
       <router-link to="/CaInfo/invoiceInquiry">
-        <el-button type="primary" class="rechargeRecord content-title-btn" style="margin-right: 20px;">开票查询</el-button>
+        <el-button  size="mini" type="primary" class="rechargeRecord content-title-btn" style="margin-right: 20px;">开票查询</el-button>
       </router-link>
       <router-link to="/CaInfo/reorder">
-        <el-button type="primary" class="rechargeRecord content-title-btn" style="margin-right: 20px;">重新开票申请记录</el-button>
+        <el-button  size="mini" type="primary" class="rechargeRecord content-title-btn" style="margin-right: 20px;">重新开票申请记录</el-button>
       </router-link>
     </div>
     <template>
@@ -290,8 +290,8 @@ export default {
   methods: {
     hh() {
       // console.log(this.$refs.element.offsetHeight);
-      this.height.height = this.screenHeight - 397 + "px";
-      this.$refs.payTypeBox.style.height = this.screenHeight - 537 + "px";
+      this.height.height = this.screenHeight - 311 + "px";
+      this.$refs.payTypeBox.style.height = this.screenHeight - 423 + "px";
     },
     handleClick(tab, event) {
       console.log(tab, event);
@@ -357,20 +357,19 @@ export default {
 };
 </script>
 
-<style lang='less' scoped>
+<style lang='less'>
 .recharge {
   padding: 15px;
   position: relative;
   .head-content {
-    padding-left: 40px;
+   padding-left: 22px;
     position: absolute;
     width: 100%;
     .title {
-      font-size: 22px;
+      font-size: 16px;
       font-weight: 600;
       color: #444;
-      padding-top: 23px;
-      padding-bottom: 23px;
+      padding-top: 15px;
       float: left;
       span {
         float: left;
@@ -378,16 +377,16 @@ export default {
       }
     }
     .charge {
-      font-size: 36px;
+      font-size: 28px;
       font-weight: bolder;
       color: #ff7800;
       margin-left: 30px;
-      margin-top: 12px !important;
+      margin-top: 4px !important;
       float: left;
     }
     .rechargeRecord {
       float: right;
-      margin: 35px 56px 0 0;
+      margin: 10px 56px 0 0;
       color: #409eff;
       background: #ecf5ff;
       border-color: #b3d8ff;
@@ -402,25 +401,31 @@ export default {
   }
   .el-tabs {
     height: 100%;
-    padding-top: 100px;
+    padding-top: 60px;
     .el-tab-pane {
       position: relative;
     }
-    .el-tabs__header {
-      margin: 0;
+    .el-tabs__header{
+      margin: 0!important;
+      .el-tabs__item{
+        font-size: 15px;
+      }
     }
     .content-box {
       border-left: 1px solid #e4e7ed;
-      padding: 20px;
+      padding: 15px;
       .el-input {
         width: 200px;
-        margin-left: 24px;
       }
       .recharge-box {
-        padding: 20px 0 20px 44px;
+        padding: 10px 0 10px 30px;
         background: #f5f5f5;
         .el-form-item {
           margin: 0;
+          .el-input__inner{
+            height: 36px;
+            line-height: 36px;
+          }
         }
         .description {
           margin-left: 35px;
@@ -430,19 +435,21 @@ export default {
         }
         .el-form-item__error {
           top: 50%;
-          left: 244px;
+          left: 210px;
         }
       }
       .el-radio-group {
-        padding: 30px 0;
+        padding: 15px 0;
       }
       .bank-btn {
         margin-top: 2px;
         li {
           float: left;
           width: 154px;
+          width: 124px;
           box-sizing: border-box;
           height: 62px;
+           height: 51px;
           border: 1px solid #e3e3e3;
           margin-right: 26px;
           margin-bottom: 26px;
@@ -453,6 +460,7 @@ export default {
             border: 0;
             vertical-align: top;
             width: 150px;
+            width: 110px;
           }
           .yh-select-icon {
             width: 17px;
@@ -489,21 +497,22 @@ export default {
         }
       }
     }
-    .content-box::-webkit-scrollbar {
+    .content-box::-webkit-scrollbar,.payType-box::-webkit-scrollbar {
       width: 6px;
       height: 6px;
       background-color: #f5f5f5;
     }
-    .content-box::-webkit-scrollbar-track {
+    .content-box::-webkit-scrollbar-track , .payType-box::-webkit-scrollbar-track {
       box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
       border-radius: 10px;
       background-color: #f5f5f5;
     }
-    .content-box::-webkit-scrollbar-thumb {
+    .content-box::-webkit-scrollbar-thumb, .payType-box::-webkit-scrollbar-thumb {
       border-radius: 10px;
       box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
       background-color: rgb(223, 221, 221);
     }
+
     .el-tabs__item {
       font-size: 17px;
     }
@@ -515,14 +524,14 @@ export default {
         text-align: right;
       }
       .el-input {
-        width: 400px !important;
+        width: 330px !important;
       }
       p {
         line-height: 32px;
       }
       .p-title {
         color: #f00 !important;
-        line-height: 50px;
+        line-height:30px;
         font-weight: 600;
       }
 
@@ -533,7 +542,7 @@ export default {
       .el-form {
         margin-top: 16px;
         .el-form-item {
-          margin-bottom: 16px;
+          margin-bottom: 10px;
         }
         .el-input__inner {
           height: 36px;
@@ -541,7 +550,7 @@ export default {
         }
         .el-form-item__error {
           top: 50%;
-          left: 444px;
+          left: 342px;
         }
       }
     }
@@ -550,19 +559,18 @@ export default {
     }
   }
   .nextbtn {
-    width: 154px;
-    height: 56px;
+    width: 120px;
+    height: 45px;
     border-radius: 3px;
-    // background: #ff7900;
     color: #fff;
-    line-height: 36px;
+    line-height: 24px;
     border: 0;
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 600;
     position: absolute;
     bottom: 30px;
     left: 50%;
-    margin-left: -77px;
+    margin-left: -60px;
   }
 }
 .el-message-box {

@@ -5,6 +5,7 @@
 
   .vxe-toolbar{
     padding: 0;
+    position: relative;
     span{
       margin-right: 10px;
       font-size: 13px;
@@ -14,20 +15,22 @@
     }
     .el-date-editor{
       margin-right: 10px;
-      width: 180px;
+      width: 130px;
+      margin-left: 10px;
       .el-range-editor--small .el-range-separator {
         line-height: 23px;
         width: 11%;
       }
     }
     .el-select{
+      margin-left: 10px;
       margin-right: 10px;
       width: 160px;
     }
     .vxe-input--wrapper{
-      height: 32px;
+      height: 33px;
       margin-right: 10px;
-      width: 130px;
+      width: 140px;
     }
     // .vxe-custom--wrapper{
     //   bottom: -550px;
@@ -39,12 +42,15 @@
     //   }
     // }
   }
+  .table-box{
+    margin-bottom: 15px!important;
+    background: #fff;
+  }
+  .botoom-box{
+    height: 32px;
+  }
   .vxe-table{
-    height: 86%;
     margin: 10px 0 10px 0 ;
-    .vxe-table--body-wrapper{
-      height: 90.5%;
-    }
     .vxe-table--body-wrapper::-webkit-scrollbar {
       width: 6px;
       height: 6px;
@@ -77,30 +83,5 @@
   }
 }
 
-@media screen and (min-width: 1550px) {
-  // .periodVal{
-  //   .vxe-toolbar{
-  //     .vxe-custom--wrapper{
-  //         bottom: -575px;
-  //       }
-  //     }
-  // }
-}
-@media screen and (min-width: 1800px) {
-  .periodVal{
-    // .vxe-toolbar{
-    //   .vxe-custom--wrapper{
-    //       bottom: -735px;
-    //     }
-    // }
-    .vxe-table{
-      height: 89%;
-      margin: 10px 0 10px 0 ;
-      .vxe-table--body-wrapper{
-        height: 92.5%;
-      }
-    }
-  }
-}
 
 

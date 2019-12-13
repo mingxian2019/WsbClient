@@ -58,12 +58,12 @@
           <el-menu-item index="">帮助</el-menu-item>
           <el-menu-item index="">关于</el-menu-item>
         </el-submenu> -->
-        <el-menu-item index='/help' ><i class="el-icon-question"></i></el-menu-item>
         <el-menu-item index='5' >
           <el-badge :value="2" :max="99">
             <i class="el-icon-message-solid"></i>
           </el-badge>
         </el-menu-item>
+        <el-menu-item index='/help' ><i class="el-icon-question"></i></el-menu-item>
       </el-menu>
     </div>
   </div>

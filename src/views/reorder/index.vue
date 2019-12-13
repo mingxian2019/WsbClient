@@ -1,6 +1,7 @@
 <template>
   <!-- 抄表异常管理 -->
   <div class="rmReadMeterEx hw100 reorder">
+    <div ref="toolbar">
     <vxe-toolbar :data="readExData">
       <template v-slot:buttons>
         <span>是否已重新开票</span>
@@ -28,10 +29,12 @@
         <el-button @click="initTable" size="small" icon="el-icon-search">查询</el-button>
       </template>
     </vxe-toolbar>
-
+    </div>
+    <div class="table-box" ref="tableBox">
     <vxe-table
       ref="xTable"
       border
+      height="auto"
       highlight-hover-row
       highlight-current-row
       resizable
@@ -70,7 +73,8 @@
         </template>
       </vxe-table-column>
     </vxe-table>
-
+    </div>
+     <div class="botoom-box">
     <el-pagination
       @size-change="handleSizeChange"
       @current-change="handlePageChange"
@@ -81,6 +85,7 @@
       :total="origin.length"
     ></el-pagination>
     <a id="downlink"></a>
+    </div>
     <!-- <el-button
       size="small"
       @click="downloadFile(origin)"
@@ -167,6 +172,7 @@ export default {
     deep: true
   },
   mounted() {
+    this.$refs.tableBox.style.height=document.documentElement.clientHeight  - this.$refs.toolbar.offsetHeight -200 +"px";
     this.outFile = document.getElementById("downlink");
     this.dateFrom = new Date(
       new Date(new Date().getTime() - 86400000).toDateString()
@@ -272,10 +278,11 @@ export default {
     bottom: 1px;
   }
   .auditStatus {
-      width: 200px!important;
+      width: 120px!important;
       .el-input{
-        width: 200px!important;
+        width: 120px!important;
       }
   }
+
 }
 </style>

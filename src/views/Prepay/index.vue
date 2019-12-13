@@ -1,5 +1,6 @@
 <template>
   <div class="prepay hw100">
+    <div ref="toolbar">
     <vxe-toolbar :data="meters" setting>
       <template v-slot:buttons>
           <el-select v-model="feeState" placeholder="用户类型" size='small'>
@@ -20,12 +21,14 @@
           <el-button class='btn-SMS' size="small"  icon="el-icon-chat-dot-round">短信催费</el-button>
       </template>
     </vxe-toolbar>
-
+    </div>
+    <div class="table-box" ref="tableBox">
     <vxe-table
       ref="xTable"
       border
       highlight-hover-row
       highlight-current-row
+      height="auto"
       :loading="loading"
       resizable
       @cell-click='handleCurrentChange'
@@ -35,68 +38,69 @@
       :data.sync="list"
       :optimization ="{scrollY: {gt: 500, oSize: 10, rSize: 30}}"
       :customs.sync="customColumns">
-      <vxe-table-column field="Addr" width="260" title="表地址" fixed="left" tree-node>
+      <vxe-table-column field="Addr" min-width="120" title="表地址" fixed="left" tree-node show-overflo>
         <template v-slot="{ row }">
           <span v-html="row.Addr"></span>
         </template>
       </vxe-table-column>
-      <vxe-table-column field="Mobile" title="手机号" :filters="moubileFilters" :filter-method="filterHandler">
+      <vxe-table-column field="Mobile"  min-width="120" title="手机号" :filters="moubileFilters" :filter-method="filterHandler" show-overflo>
         <template v-slot="{ row }">
           <span v-html="row.Mobile"></span>
         </template>
       </vxe-table-column>
-      <vxe-table-column field="UserName" title="用户表名">
+      <vxe-table-column field="UserName" min-width="120"  title="用户表名" show-overflo>
         <template v-slot="{ row }">
           <span v-html="row.UserName"></span>
         </template>
       </vxe-table-column>
-      <vxe-table-column field="UserNo" title="用户表号">
+      <vxe-table-column field="UserNo"  min-width="120" title="用户表号" show-overflo>
         <template v-slot="{ row }">
           <span v-html="row.UserNo"></span>
         </template>
       </vxe-table-column>
-      <vxe-table-column field="UserTypeText" title="计费标准">
+      <vxe-table-column field="UserTypeText"  min-width="120" title="计费标准" show-overflo>
         <template v-slot="{ row }">
           <span v-html="row.UserTypeText"></span>
         </template>
       </vxe-table-column>
-      <vxe-table-column field="PayTypeText" title="预付费类型">
+      <vxe-table-column field="PayTypeText"  min-width="120" title="预付费类型" show-overflo>
         <template v-slot="{ row }">
           <span v-html="row.PayTypeText"></span>
         </template>
       </vxe-table-column>
-      <vxe-table-column field="AlarmVal"  title='预警量'>
+      <vxe-table-column field="AlarmVal"   min-width="120" title='预警量' show-overflo>
         <template v-slot="{ row }">
           <span v-html="row.AlarmVal"></span>
         </template>
       </vxe-table-column>
-      <vxe-table-column field="SwitchSta" title="通断状态">
+      <vxe-table-column field="SwitchSta" min-width="120"  title="通断状态" show-overflo>
         <template v-slot="{ row }">
           <span v-html="row.SwitchSta"></span>
         </template>
       </vxe-table-column>
-      <vxe-table-column field="PayLeft"  title="剩余量">
+      <vxe-table-column field="PayLeft"  min-width="120"  title="剩余量" show-overflo>
         <template v-slot="{ row }">
           <span v-html="row.PayLeft"></span>
         </template>
       </vxe-table-column>
-      <vxe-table-column field="CalVal"  title="抄表扣费表底">
+      <vxe-table-column field="CalVal"  min-width="120"  title="抄表扣费表底" show-overflo>
         <template v-slot="{ row }">
           <span v-html="row.CalVal"></span>
         </template>
       </vxe-table-column>
-      <vxe-table-column field="ValTime" title="抄表扣费时间">
+      <vxe-table-column field="ValTime" min-width="120"  title="抄表扣费时间" show-overflo>
         <template v-slot="{ row }">
           <span v-html="row.ValTime"></span>
         </template>
       </vxe-table-column>
-            <vxe-table-column field="FeeTime"  title="最近充值时间">
+            <vxe-table-column field="FeeTime"  min-width="120"  title="最近充值时间" show-overflo>
         <template v-slot="{ row }">
           <span v-html="row.FeeTime"></span>
         </template>
       </vxe-table-column>
     </vxe-table>
-
+    </div>
+    <div class="botoom-box">
     <el-pagination
       background
       @size-change="handleSizeChange"
@@ -125,6 +129,7 @@
         <el-button class='group btn-fun'  slot="reference" size="small"  icon="el-icon-document-copy">分组</el-button>
       </el-popover>
       <el-button class="btn-fun btn-export" size="small"  @click="downloadFile(origin)"  icon="el-icon-upload2">导出</el-button>
+      </div>
     <Open ref="showOpen" :currentMeter="currentMeter" :meters="meters"/>
     <Recharge ref="showRecharge" :currentMeter="currentMeter" :meters="meters"/>
     <Destroy ref="showDestroy" :currentMeter="currentMeter" :meters="meters"/>
@@ -220,6 +225,7 @@ export default {
     deep: true
   },
   mounted () {
+    this.$refs.tableBox.style.height=document.documentElement.clientHeight - this.$refs.toolbar.offsetHeight -200 +"px";
     this.initTable()
     this.outFile = document.getElementById('downlink')
   },

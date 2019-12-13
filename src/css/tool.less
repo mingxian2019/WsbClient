@@ -2,7 +2,8 @@
 
 @grouping--bc: #ccc;
 @grouping--br: 5px;
-@grouping--p: 15px 10px;;
+@grouping--p: 15px 10px;
+;
 @grouping-header--bgc: #fff;
 @grouping-header-title--fs: 15px;
 @header-nav--fs: 20px;
@@ -12,25 +13,31 @@
 @el-dialog-header--bgc: #F5F5F5;
 @el-dialog-body--p: 25px 25px 0 0;
 
-.hw100{
+.hw100 {
   height: 100%;
   width: 100%;
 }
-.mr10{
+
+.mr10 {
   margin-right: 10px;
 }
-.m0{
+
+.m0 {
   margin: 0 !important;
 }
+
 .mr0 {
   margin-right: 0 !important;
 }
-.float-r{
+
+.float-r {
   float: right;
 }
-.float-l{
+
+.float-l {
   float: left;
 }
+
 .clearfix:after {
   content: '';
   height: 0;
@@ -38,9 +45,10 @@
   clear: both;
 }
 
-.grouping{
+.grouping {
   margin-bottom: 10px;
-  &-title{
+
+  &-title {
     display: block;
     height: 30px;
     line-height: 30px;
@@ -48,62 +56,67 @@
     color: #000000;
     background: rgb(209, 209, 209);
   }
+
   &-content {
     padding: 10px 15px 10px 30px;
     background: #f0f0f0;
   }
 }
 
-.header{
+.header {
   height: 120px;
-  &-logo{
-    display:inline-block;
+
+  &-logo {
+    display: inline-block;
     width: 75px;
     height: 100%;
     margin-left: @header-logo--ml;
     vertical-align: top;
     background-color: skyblue;
 
-    img{
+    img {
       width: 100%;
       height: 100%;
     }
   }
+
   &-title {
     // vertical-align: top;
     display: inline-block;
     margin-top: 18px;
     color: #333;
 
-    .shu{
-      display:inline-block;
+    .shu {
+      display: inline-block;
       height: 100%;
       margin: 0 5px 0 5px;
     }
-    h2{
+
+    h2 {
       padding-right: 10px;
       border-right: 1px solid #ccc;
-      display:inline-block;
+      display: inline-block;
       font-size: 22px;
       font-weight: 400;
     }
-    span{
+
+    span {
       color: #666;
       font-size: 17px;
     }
   }
 
-  &-nav{
-    height:100%;
+  &-nav {
+    height: 100%;
     float: right;
     margin-right: @header-nav--mr;
     padding-top: 25px;
 
-    li{
+    li {
       float: left;
       padding: 0 15px;
 
-      a{
+      a {
         font-size: @header-nav--fs;
         // color: rgb(114, 112, 112) !important;
       }
@@ -111,127 +124,174 @@
   }
 }
 
-.setEl-dialog(@w){
-  .el-dialog{
+.setEl-dialog(@w) {
+  .el-dialog {
     width: @w;
     border-radius: 5px;
-    &__header{
+
+    &__header {
       padding: 15px 10px 10px;
       border-radius: 5px 5px 0 0;
       background-color: @el-dialog-header--bgc;
 
-      .el-dialog__title{
+      .el-dialog__title {
         font-size: @el-dialog-title--fs;
         font-weight: 700;
       }
-      .el-dialog__headerbtn{
+
+      .el-dialog__headerbtn {
         top: 14px;
 
         .el-dialog__close {
           font-size: 18px;
-          &:hover{
+
+          &:hover {
             color: red;
           }
         }
       }
 
     }
+
     &__body {
       padding: @el-dialog-body--p;
-      .el-form-item__label{
+
+      .el-form-item__label {
         margin-bottom: 5px;
       }
-      .el-input__inner{
+
+      .el-input__inner {
         height: 40px;
         line-height: 40px;
       }
-      .vue-treeselect__control{
+
+      .vue-treeselect__control {
         height: 40px;
-        .vue-treeselect__placeholder, .vue-treeselect__single-value{
-        line-height: 40px;
+
+        .vue-treeselect__placeholder,
+        .vue-treeselect__single-value {
+          line-height: 40px;
         }
       }
-      .el-form-item{
-        padding-left:25px;
+
+      .el-form-item {
+        padding-left: 25px;
         padding-right: 0;
-        margin-bottom: 25px;
+        margin-bottom: 15px;
       }
     }
+
     &__footer {
       padding: 0 25px 25px;
-      .dialog-footer{
-        height:100%;
+
+      .dialog-footer {
+        height: 100%;
         display: block;
         padding: 0;
       }
-      .el-button{
+
+      .el-button {
         margin-left: 15px;
       }
     }
   }
 }
-.el-item50{
-  display:inline-block;
+
+.el-item50 {
+  display: inline-block;
   width: 50%;
   padding-right: 10px;
   box-sizing: border-box;
 }
-.btn-fun{
-  float:right;
+
+.btn-fun {
+  float: right;
   color: #000;
   padding: 0;
   border: 0;
   margin: 5px 20px 0 0;
-  i{
+
+  i {
     float: left;
     font-size: 18px;
     vertical-align: sub;
   }
 }
+
 // .btn-label{
 //   float:right;
 //   margin: 5px 0px 0 0;
 // }
-.online{
+.online {
   background: rgb(47, 248, 7);
 }
-.offline{
+
+.offline {
   background: rgb(250, 34, 34);
 }
-.vxe-toolbar{
-  .el-input__inner{
-    height: 36px;
-    line-height: 36px;
+
+.vxe-toolbar {
+  position: relative;
+  .el-input__inner {
+    height: 33px;
+    line-height: 33px;
+    padding-right:15px!important ;
   }
+  position: relative;
+  .vxe-button--wrapper{
+    span{
+      margin-right: 0!important;
+    }
+  } 
+  
 }
+
 //设置表格列动态调整公共样式--start
-// .vxe-toolbar .vxe-custom--wrapper{
-//  float: unset;
-//  text-align: right;
-//  position: absolute!important;
-//  /* height: 50px; */
-//  /* line-height: 35px; */
-//  width: 34px!important;
-//  right: 7px!important;
-//  top: 10px!important;
-// }
-.vxe-table{
-  height: 80%!important;
+.vxe-toolbar .vxe-custom--wrapper {
+  float: none;
+  text-align: right;
+  position: absolute;
+  right: 0px;
+  top: 0px;
 }
-.el-button.group,.el-button.btn-group{
-  margin-right: 18px!important;
+
+.el-button.group,
+.el-button.btn-group {
+  margin-right: 18px !important;
 }
-.el-button.btn-export,.el-button.uploadFile{
-  margin-right: 18px!important;
+
+.el-button.btn-export,
+.el-button.uploadFile {
+  margin-right: 18px !important;
 }
-.card>div{
-position: relative;
+
+.card>div {
+  position: relative;
 }
-.vxe-table.t--border .vxe-body--column, .vxe-table.t--border .vxe-footer--column, .vxe-table.t--border .vxe-header--column{
-  min-width: 120px;
-}
+
 // .vxe-toolbar .el-input{
 //   margin-bottom: 15px;
 // }
 //--end
 
+.el-pagination {
+  margin-top: -3px;
+}
+
+.vxe-table--body-wrapper::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+  background-color: #F5F5F5;
+}
+
+.vxe-table--body-wrapper::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  background-color: #F5F5F5;
+}
+
+.vxe-table--body-wrapper::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+  background-color: rgb(223, 221, 221);
+}

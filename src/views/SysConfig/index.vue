@@ -11,28 +11,43 @@
     <div class='sysConfig-content' id="js-scroll">
       <div class='sysConfig-content-item'>
         <h3 class='sysConfig-content-item-title'>采集存储间隔</h3>
-        <el-radio-group class='ml20 sysConfig-content-item-children' v-model="sysConfigData.collectStorageinterval" >
-          <el-radio :label="0">每天采集冻结<i style='color:#0366d6'> 1 </i>个点的数据 </el-radio>
-          <span class='directions s_ml1'>服务费：<i> 免费</i></span><br/>
-          <el-radio :label="1" >每天采集冻结<i style='color:#0366d6'> 24 </i>个点的数据</el-radio>
-          <span class='directions s_ml1'>服务费：<i> 0.01 </i>元每块表每天</span><br/>
-          <el-radio :label="2" class='lastbm0'>每天采集冻结<i style='color:#0366d6'> 96 </i>个点的数据</el-radio>
-          <span class='directions s_ml1'>服务费：<i> 0.02 </i>元每块表每天</span><br/>
-        </el-radio-group>
+         <el-row>
+            <el-col :span="12">
+              <div class="grid-content sysConfig-content-item-children">
+                <el-radio-group class='ml20 sysConfig-content-item-children' v-model="sysConfigData.collectStorageinterval" >
+                <el-radio :label="0">每天采集冻结<i style='color:#0366d6'> 1 </i>个点的数据 </el-radio>
+                <el-radio :label="1" >每天采集冻结<i style='color:#0366d6'> 24 </i>个点的数据</el-radio>
+                <el-radio :label="2" class='lastbm0'>每天采集冻结<i style='color:#0366d6'> 96 </i>个点的数据</el-radio>
+                </el-radio-group>
+              </div>
+              </el-col>
+            <el-col :span="12">
+              <div class="grid-content sysConfig-content-item-children">
+              <div class='directions s_ml1'>服务费：<i> 免费</i></div>
+               <div class='directions s_ml1'>服务费：<i> 0.01 </i>元每块表每天</div>
+                <div class='directions s_ml1'>服务费：<i> 0.02 </i>元每块表每天</div>
+              </div>
+            </el-col>
+          </el-row>
       </div>
 
       <div class='sysConfig-content-item'>
         <h3 class='sysConfig-content-item-title'>采集数据项</h3>
-        <div class='sysConfig-content-item-children'>
-          <el-checkbox class='ml20 childLabel ' v-model="sysConfigData.meterValue">表底</el-checkbox>
-          <span class='directions s_ml2'>服务费： <i>免费</i></span>
-        </div>
-        <div class='sysConfig-content-item-children'>
-          <el-checkbox class='ml20 childLabel lastbm0' v-model="sysConfigData.other">其它（电流、电流、功率、需量、温湿度等）</el-checkbox>
-          <span class='directions s_ml2'>服务费：<i> 0.01 </i>元每块表每天</span>
-        </div>
+        <el-row>
+            <el-col :span="12">
+              <div class="grid-content sysConfig-content-item-children">
+                   <el-checkbox class='ml20 childLabel ' v-model="sysConfigData.meterValue">表底</el-checkbox>
+                   <el-checkbox class='ml20 childLabel lastbm0' v-model="sysConfigData.other">其它（电流、电流、功率、需量、温湿度等）</el-checkbox>
+              </div>
+              </el-col>
+            <el-col :span="12">
+              <div class="grid-content sysConfig-content-item-children">
+                  <div class='directions s_ml2' style="margin-bottom: 13px;">服务费： <i>免费</i></div>
+                  <div class='directions s_ml2'>服务费：<i> 0.01 </i>元每块表每天</div>
+              </div>
+            </el-col>
+          </el-row>
       </div>
-
       <div class='sysConfig-content-item'>
         <div class='sysConfig-content-item-children'>
           <el-checkbox class='sysConfig-content-item-title lastbm0' v-model="sysConfigData.prepaid">预付费</el-checkbox>

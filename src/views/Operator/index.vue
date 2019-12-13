@@ -1,5 +1,6 @@
 <template>
   <div class="oprtsyot hw100">
+    <div ref="toolbar">
     <vxe-toolbar :data="operatorData" id="operatorTable" :resizable="{storage: true}" :setting="{storage: true}">
       <template v-slot:buttons>
         <!-- <vxe-button @click="loadOperator()">刷新</vxe-button> -->
@@ -8,10 +9,12 @@
         <el-button size="small" icon="el-icon-delete" @click="deleteOperator">删除</el-button >
       </template>
     </vxe-toolbar>
-
+    </div>
+    <div class="table-box" ref="tableBox">
     <vxe-table
       ref="xTable"
       border
+       height="auto"
       highlight-hover-row
       highlight-current-row
       resizable
@@ -30,7 +33,8 @@
       ></vxe-table-column>
       <vxe-table-column field="Password" title="密码"></vxe-table-column>
     </vxe-table>
-
+    </div>
+     <div class="botoom-box">
     <el-pagination
       background
       @size-change="handleSizeChange"
@@ -41,7 +45,7 @@
       layout="total, prev, pager, next, jumper"
       :total="origin.length">
     </el-pagination>
-
+    </div>
     <AddOperator ref="showAddOperator" :operatorData='operatorData'  @watchChild="refreshTable"/>
     <EditOperator ref="showEditOperator" :currentOperator='currentOperator' />
   </div>
@@ -85,6 +89,9 @@ export default {
       this.operatorData = store.state.glSysOprData
       return
     }
+  },
+  mounted(){
+    this.$refs.tableBox.style.height=document.documentElement.clientHeight - this.$refs.toolbar.offsetHeight -200 +"px";
   },
   methods: {
     // 筛选

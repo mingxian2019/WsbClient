@@ -6,10 +6,12 @@
   position: relative;
   .vxe-toolbar{
     padding: 0;
+    position: relative;
     .vxe-button--wrapper{
       .el-select{
         width: 100px;
         margin-right: 10px;
+        margin-left: 10px;
         .el-input{
           width: 100%;
         }
@@ -17,6 +19,7 @@
       .el-input{
         width: 130px;
         margin-right: 10px;
+        margin-left: 10px;
       }
       .el-button{
         padding: 9px 10px;
@@ -28,8 +31,8 @@
         margin-left: 10px;
       }
       .vxe-input--wrapper{
-        width:160px;
-        height: 32px;
+        width: 140px;
+        height: 33px;
         margin-right: 10px;
       }
       span {
@@ -41,45 +44,25 @@
       }
 
     }
-    // .vxe-custom--wrapper{
-    //   bottom: -550px;
-    //   .vxe-custom--setting-btn{
-    //     font-size: 15px;
-    //   }
-    //   .vxe-custom--option-wrapper{
-    //     bottom: 40px;
-    //   }
-    // }
+    .vxe-custom--wrapper {
+      float: none!important;
+      text-align: right;
+      position: absolute;
+      right: 0px;
+      top: 0px;
+    }
+  }
+  .table-box{
+    margin-bottom: 15px!important;
+    background: #fff;
+  }
+  .botoom-box{
+    height: 32px;
   }
   .vxe-table{
-    height: 80%;
     margin-top: 10px;
     width: 100%;
     margin: 10px 0 10px 0 ;
-
-    // .vxe-table--header-wrapper{
-    //   height:10%
-    // }
-    .vxe-table--body-wrapper{
-      height: 90%;
-    }
-    .vxe-table--body-wrapper::-webkit-scrollbar {
-      width: 10px;
-      height: 10px;
-      background-color: #F5F5F5;
-    }
-
-    .vxe-table--body-wrapper::-webkit-scrollbar-track {
-      box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-      // border-radius: 10px;
-      background-color: #F5F5F5;
-    }
-
-    .vxe-table--body-wrapper::-webkit-scrollbar-thumb {
-      border-radius: 10px;
-      box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
-      background-color: rgb(223, 221, 221);
-    }
     .keyword-lighten {
       color: #000;
       background-color: #FFFF00;
